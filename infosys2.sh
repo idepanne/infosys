@@ -3,7 +3,7 @@ clear
 cd
 echo "###############################################################################"
 echo "#                                                                             #"
-echo "#                               Infosys 9.0.0b11                              #"
+echo "#                               Infosys 9.0.0b12                              #"
 echo "#                 © 2020-2022 iDépanne – L'expert informatique                #"
 echo "#                           https://fb.me/idepanne/                           #"
 echo "#                            idepanne67@gmail.com                             #"
@@ -98,16 +98,22 @@ echo "Synchronisation de l'horloge :"
 sudo systemctl daemon-reload
 timedatectl timesync-status && timedatectl
 echo ""
+echo ""
 echo "==============================================================================="
+echo ""
 echo ""
 pinout
 echo ""
+echo ""
 echo "==============================================================================="
+echo ""
 echo ""
 neofetch
 else
 echo ""
+echo ""
 echo "==============================================================================="
+echo ""
 echo ""
 neofetch
 fi
