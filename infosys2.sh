@@ -3,7 +3,7 @@ clear
 cd
 echo "###############################################################################"
 echo "#                                                                             #"
-echo "#                               Infosys 9.0.0b7                               #"
+echo "#                               Infosys 9.0.0b8                               #"
 echo "#                 © 2020-2022 iDépanne – L'expert informatique                #"
 echo "#                           https://fb.me/idepanne/                           #"
 echo "#                            idepanne67@gmail.com                             #"
@@ -12,7 +12,7 @@ echo "##########################################################################
 echo ""
 echo ""
 sudo apt update && sudo apt install -y neofetch*
-wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/apps/neofetch/config.conf > config.conf
+wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/config.conf > config.conf
 mkdir .config
 cd .config
 mkdir neofetch
