@@ -3,7 +3,7 @@ clear
 cd
 echo "###############################################################################"
 echo "#                                                                             #"
-echo "#                               Infosys 9.0.0b6                               #"
+echo "#                               Infosys 9.0.0b7                               #"
 echo "#                 © 2020-2022 iDépanne – L'expert informatique                #"
 echo "#                           https://fb.me/idepanne/                           #"
 echo "#                            idepanne67@gmail.com                             #"
@@ -13,6 +13,10 @@ echo ""
 echo ""
 sudo apt update && sudo apt install -y neofetch*
 wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/apps/neofetch/config.conf > config.conf
+mkdir .config
+cd .config
+mkdir neofetch
+cd
 sudo rm ~/.config/neofetch/config.conf
 sudo mv config.conf ~/.config/neofetch/config.conf
 
@@ -99,12 +103,14 @@ sudo systemctl daemon-reload
 timedatectl timesync-status && timedatectl
 echo ""
 echo "==============================================================================="
+echo ""
 neofetch
 pinout
 echo "==============================================================================="
 else
 echo ""
 echo "==============================================================================="
+echo ""
 neofetch
 fi
 echo "==============================================================================="
