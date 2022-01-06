@@ -11,7 +11,6 @@ echo "#                                                                         
 echo "###############################################################################"
 echo ""
 echo ""
-echo ""
 sudo apt update && sudo apt install -y neofetch*
 wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/apps/neofetch/config.conf > config.conf
 sudo rm ~/.config/neofetch/config.conf
@@ -99,14 +98,13 @@ echo "Synchronisation de l'horloge :"
 sudo systemctl daemon-reload
 timedatectl timesync-status && timedatectl
 echo ""
-echo "Informations complémentaires :"
+echo "==============================================================================="
 neofetch
-echo ""
 pinout
+echo "==============================================================================="
 else
 echo ""
 echo "==============================================================================="
-echo ""
 neofetch
 fi
 echo "==============================================================================="
