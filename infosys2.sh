@@ -3,7 +3,7 @@ clear
 cd
 echo "###############################################################################"
 echo "#                                                                             #"
-echo "#                               Infosys 9.0.0b9                               #"
+echo "#                               Infosys 9.0.0b10                              #"
 echo "#                 © 2020-2022 iDépanne – L'expert informatique                #"
 echo "#                           https://fb.me/idepanne/                           #"
 echo "#                            idepanne67@gmail.com                             #"
@@ -100,8 +100,9 @@ timedatectl timesync-status && timedatectl
 echo ""
 echo "==============================================================================="
 echo ""
-neofetch
 pinout
+echo ""
+neofetch
 else
 echo ""
 echo "==============================================================================="
