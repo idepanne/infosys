@@ -80,6 +80,3 @@ echo "Synchronisation de l'horloge :"
 sudo systemctl daemon-reload
 timedatectl timesync-status && timedatectl
 sudo rm infosys2.sh
-echo ""
-echo ""
-echo ""
