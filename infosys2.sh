@@ -1,5 +1,5 @@
 #!/bin/bash
-cd Apps
+cd ~/Apps
 
 ###### Définition des variables ######
 var1=$(cat /proc/cpuinfo | grep Hardware | cut -c12-)
