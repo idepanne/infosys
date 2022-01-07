@@ -1,5 +1,6 @@
 #!/bin/bash
-cd
+cd Apps
+
 ###### Définition des variables ######
 var1=$(cat /proc/cpuinfo | grep Hardware | cut -c12-)
 if [[ $var1 == *"BCM"* ]]; then
