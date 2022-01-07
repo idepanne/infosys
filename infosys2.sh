@@ -82,5 +82,4 @@ timedatectl timesync-status && timedatectl
 echo ""
 echo ""
 echo ""
-cd
 sudo rm infosys2.sh
