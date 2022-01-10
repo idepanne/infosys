@@ -53,7 +53,7 @@ echo -n "Codec H264      : " && echo "$(vcgencmd codec_enabled H264)" | cut -c6-
 echo -n "Codec H265      : " && echo "$(vcgencmd codec_enabled H265)" | cut -c6-
 echo ""
 echo -n "Système         : "; echo "$var15 $var17"
-if [[ $var20 == *"lxsession"* || $var1 == *"openbox"*  || $var1 == *"pipewire-media"* ]]; then
+if [[ $var20 == *"lxsession"* || $var20 == *"openbox"*  || $var20 == *"pipewire-media"* ]]; then
 echo "Interface       : Graphique (GUI)"
 else
 echo "Interface       : Lignes de commandes (CLI)"
