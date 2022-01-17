@@ -83,7 +83,7 @@ echo ""
 echo -n "Démarré depuis  : " && echo "$var18 - $var19"
 echo ""
 echo "Stockage        : "
-df -h
+df -hT
 echo ""
 echo "RAM             : "
 free -ht
