@@ -92,10 +92,14 @@ timedatectl timesync-status && timedatectl
 sudo rm infosys-rpi.sh
 
 else
+echo ""
+echo ""
 echo "Ce programme n'est compatible qu'avec les Raspberry Pi."
 echo ""
+echo ""
 echo "Pour les autres distributions Linux, veuillez utiliser la commande :"
-echo "$ cd && wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/infosys.sh > infosys.sh && sudo chmod +x infosys.sh && ./infosys.sh"
+echo ""
+echo "cd && wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/infosys.sh > infosys.sh && sudo chmod +x infosys.sh && ./infosys.sh"
 echo ""
 echo ""
 cd
