@@ -5,6 +5,9 @@
 # https://fb.me/idepanne/
 # idepanne67@gmail.com
 
+var0=$(hostnamectl | grep "Operating System")
+if [[ $var0 == *"Raspbian"* ]]; then
+
 cd ~/Apps
 sudo apt-get update
 
@@ -87,3 +90,14 @@ echo "Synchronisation de l'horloge :"
 sudo systemctl daemon-reload
 timedatectl timesync-status && timedatectl
 sudo rm infosys-rpi.sh
+
+else
+echo "Ce programme n'est compatible qu'avec les Raspberry Pi."
+echo ""
+echo "Pour les autres distributions Linux, veuillez utiliser la commande :"
+echo "$ cd && wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/infosys.sh > infosys.sh && sudo chmod +x infosys.sh && ./infosys.sh"
+echo ""
+echo ""
+cd
+sudo rm infosys-rpi.sh
+fi
