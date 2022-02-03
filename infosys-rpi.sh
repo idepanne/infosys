@@ -1,23 +1,12 @@
 #!/bin/bash
-# infosys.sh
-# Informations système pour Linux et Raspberry Pi
+# infosys-rpi.sh
+# Informations système pour Raspberry Pi uniquement
 # © 2020-2022 iDépanne – L'expert informatique
 # https://fb.me/idepanne/
 # idepanne67@gmail.com
 
-cd
-sudo apt update && sudo apt install -y neofetch*
-mkdir .config
-cd .config
-mkdir neofetch
-cd
-wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/config.conf > config.conf
-sudo rm ~/.config/neofetch/config.conf
-sudo mv config.conf ~/.config/neofetch/config.conf
-
-var0=$(hostnamectl | grep "Operating System")
-
-if [[ $var0 == *"Raspbian"* ]]; then
+cd ~/Apps
+sudo apt-get update
 
 ###### Définition des variables ######
 var1=$(cat /proc/cpuinfo | grep Hardware | cut -c12-)
@@ -97,16 +86,4 @@ echo ""
 echo "Synchronisation de l'horloge :"
 sudo systemctl daemon-reload
 timedatectl timesync-status && timedatectl
-echo ""
-echo ""
-pinout
-echo ""
-echo ""
-neofetch
-else
-echo ""
-echo ""
-neofetch
-fi
-cd
-sudo rm infosys.sh
+sudo rm infosys-rpi.sh
