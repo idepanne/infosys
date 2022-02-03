@@ -1,5 +1,6 @@
 #!/bin/bash
 cd ~/Apps
+sudo apt-get update
 
 ###### Définition des variables ######
 var1=$(cat /proc/cpuinfo | grep Hardware | cut -c12-)
