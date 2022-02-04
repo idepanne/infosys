@@ -5,8 +5,8 @@
 # https://fb.me/idepanne/
 # idepanne67@gmail.com
 
-var0=$(hostnamectl | grep "Operating System")
-if [[ $var0 == *"Raspbian"* ]]; then
+var0=$(cat /proc/cpuinfo | grep Model)
+if [[ $var0 == *"Raspberry Pi"* ]]; then
 
 cd ~/Apps
 sudo apt-get update

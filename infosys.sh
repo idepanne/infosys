@@ -15,9 +15,8 @@ wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/con
 sudo rm ~/.config/neofetch/config.conf
 sudo mv config.conf ~/.config/neofetch/config.conf
 
-var0=$(hostnamectl | grep "Operating System")
-
-if [[ $var0 == *"Raspbian"* ]]; then
+var0=$(cat /proc/cpuinfo | grep Model)
+if [[ $var0 == *"Raspberry Pi"* ]]; then
 
 ###### Définition des variables ######
 var1=$(cat /proc/cpuinfo | grep Hardware | cut -c12-)
