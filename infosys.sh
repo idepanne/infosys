@@ -45,6 +45,8 @@ fi
 var18=$(uptime -s)
 var19=$(uptime -p)
 var20=$(ls /usr/bin/*session)
+var21=$(/sbin/ip route show dev eth0 | grep default | cut -c12- | rev | cut -c30- | rev)
+var22=$(/sbin/ip -6 route show dev eth0 | grep default | cut -c13- | rev | cut -c42- | rev)
 ######################################
 
 echo ""
@@ -57,17 +59,17 @@ cat /proc/cpuinfo | grep Model
 echo ""
 cat /proc/cpuinfo | grep Serial
 echo ""
-echo -n "SoC             : " && echo "$var2 $var1 (Rev $var3)"
-echo -n "Processeur      : " && echo "$var5 $var4"
-echo -n "Nb de coeurs    : " && echo "$var6"
+echo -n "SoC             : "; echo "$var2 $var1 (Rev $var3)"
+echo -n "Processeur      : "; echo "$var5 $var4"
+echo -n "Nb de coeurs    : "; echo "$var6"
 echo -n "Fréquences      : "; echo "Min $var7 MHz - Cur $var8 MHz - Max $var9 MHz"
 echo -n "Voltage         : "; echo "$var10"
 echo -n "Température     : "; echo "$(vcgencmd measure_temp | egrep -o '[0-9]*\.[0-9]*')°C"
 echo ""
-echo -n "GPU RAM         : " && echo "$(vcgencmd get_mem gpu)" | cut -c5-
+echo -n "GPU RAM         : "; echo "$(vcgencmd get_mem gpu)" | cut -c5-
 echo -n "GPU fréquences  : "; echo "$var12 MHz"
-echo -n "Codec H264      : " && echo "$(vcgencmd codec_enabled H264)" | cut -c6-
-echo -n "Codec H265      : " && echo "$(vcgencmd codec_enabled H265)" | cut -c6-
+echo -n "Codec H264      : "; echo "$(vcgencmd codec_enabled H264)" | cut -c6-
+echo -n "Codec H265      : "; echo "$(vcgencmd codec_enabled H265)" | cut -c6-
 echo ""
 echo -n "Système         : "; echo "$var15 $var17"
 if [[ $var20 == *"lxsession"* || $var20 == *"openbox"*  || $var20 == *"pipewire-media"* ]]; then
@@ -82,10 +84,11 @@ echo -n "EEPROM          : "
 sudo rpi-eeprom-update
 echo ""
 echo -n "IPv4/IPv6       : "; hostname -I
+echo -n "Routeur         : "; echo "$var21 $var22"
 echo ""
 echo -n "Nom d'hôte      : "; hostname
 echo ""
-echo -n "Démarré depuis  : " && echo "$var18 - $var19"
+echo -n "Démarré depuis  : "; echo "$var18 - $var19"
 echo ""
 echo "Stockage        : "
 df -hT
