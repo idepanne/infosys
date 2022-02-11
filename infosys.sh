@@ -45,8 +45,8 @@ fi
 var18=$(uptime -s)
 var19=$(uptime -p)
 var20=$(ls /usr/bin/*session)
-var21=$(/sbin/ip route show dev eth0 | grep default)
-var22=$(/sbin/ip -6 route show dev eth0 | grep default)
+var21=$(/sbin/ip route show | grep default)
+var22=$(/sbin/ip -6 route show | grep default)
 ######################################
 
 echo ""
