@@ -38,8 +38,8 @@ fi
 var18=$(uptime -s)
 var19=$(uptime -p)
 var20=$(ls /usr/bin/*session)
-var21=$(/sbin/ip route show dev eth0 | grep default | cut -c13- | rev | cut -c30- | rev)
-var22=$(/sbin/ip -6 route show dev eth0 | grep default | cut -c13- | rev | cut -c42- | rev)
+var21=$(/sbin/ip route show | grep default)
+var22=$(/sbin/ip -6 route show | grep default)
 ######################################
 
 echo ""
@@ -77,7 +77,10 @@ echo -n "EEPROM          : "
 sudo rpi-eeprom-update
 echo ""
 echo -n "IPv4/IPv6       : "; hostname -I
-echo -n "Routeur         : "; echo "$var21 $var22"
+echo ""
+echo "Passerelle      : "
+echo "$var21"
+echo "$var22"
 echo ""
 echo -n "Nom d'hôte      : "; hostname
 echo ""

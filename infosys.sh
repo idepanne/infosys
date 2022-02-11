@@ -85,7 +85,7 @@ sudo rpi-eeprom-update
 echo ""
 echo -n "IPv4/IPv6       : "; hostname -I
 echo ""
-echo "Routeur         : "
+echo "Passerelle      : "
 echo "$var21"
 echo "$var22"
 echo ""
