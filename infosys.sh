@@ -83,13 +83,13 @@ echo ""
 echo -n "EEPROM          : "
 sudo rpi-eeprom-update
 echo ""
+echo -n "Nom d'hôte      : "; hostname
+echo ""
 echo -n "IPv4/IPv6       : "; hostname -I
 echo ""
 echo "Routeur         : "
 echo "$var21"
 echo "$var22"
-echo ""
-echo -n "Nom d'hôte      : "; hostname
 echo ""
 echo -n "Démarré depuis  : "; echo "$var18 - $var19"
 echo ""
