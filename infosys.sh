@@ -59,46 +59,46 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo ""
 	cat /proc/cpuinfo | grep Serial
 	echo ""
-	echo -n "SoC             :  "; echo "$var2 $var1 (Rev $var3)"
-	echo -n "Processeur      :  "; echo "$var5 $var4"
-	echo -n "Nb de coeurs    :  "; echo "$var6"
-	echo -n "Fréquences      :  "; echo "Min $var7 MHz - Cur $var8 MHz - Max $var9 MHz"
-	echo -n "Voltage         :  "; echo "$var10"
-	echo -n "Température     :  "; echo "$(vcgencmd measure_temp | egrep -o '[0-9]*\.[0-9]*')°C"
+	echo -n "SoC             : "; echo "$var2 $var1 (Rev $var3)"
+	echo -n "Processeur      : "; echo "$var5 $var4"
+	echo -n "Nb de coeurs    : "; echo "$var6"
+	echo -n "Fréquences      : "; echo "Min $var7 MHz - Cur $var8 MHz - Max $var9 MHz"
+	echo -n "Voltage         : "; echo "$var10"
+	echo -n "Température     : "; echo "$(vcgencmd measure_temp | egrep -o '[0-9]*\.[0-9]*')°C"
 	echo ""
-	echo -n "GPU RAM         :  "; echo "$(vcgencmd get_mem gpu)" | cut -c5-
-	echo -n "GPU fréquences  :  "; echo "$var12 MHz"
-	echo -n "Codec H264      :  "; echo "$(vcgencmd codec_enabled H264)" | cut -c6-
-	echo -n "Codec H265      :  "; echo "$(vcgencmd codec_enabled H265)" | cut -c6-
+	echo -n "GPU RAM         : "; echo "$(vcgencmd get_mem gpu)" | cut -c5-
+	echo -n "GPU fréquences  : "; echo "$var12 MHz"
+	echo -n "Codec H264      : "; echo "$(vcgencmd codec_enabled H264)" | cut -c6-
+	echo -n "Codec H265      : "; echo "$(vcgencmd codec_enabled H265)" | cut -c6-
 	echo ""
-	echo -n "Système         :  "; echo "$var15 $var17"
+	echo -n "Système         : "; echo "$var15 $var17"
 	if [[ $var20 == *"lxsession"* || $var20 == *"openbox"*  || $var20 == *"pipewire-media"* ]]; then
-		echo "Interface          :  Graphique (GUI)"
+		echo "Interface       : Graphique (GUI)"
 	else
-		echo "Interface          :  Lignes de commandes (CLI)"
+		echo "Interface       : Lignes de commandes (CLI)"
 	fi
 	echo ""
-	echo -n "Firmware        :  "; echo "$var13"
+	echo -n "Firmware        : "; echo "$var13"
 	echo ""
-	echo -n "EEPROM          :  "
+	echo -n "EEPROM          : "
 	sudo rpi-eeprom-update
 	echo ""
-	echo -n "Nom d'hôte      :  "; hostname
+	echo -n "Nom d'hôte      : "; hostname
 	echo ""
-	echo -n "IPv4/IPv6       :  "; hostname -I
+	echo -n "IPv4/IPv6       : "; hostname -I
 	echo ""
-	echo -n "Routeur         :  "; echo "$var21"
-	echo -n "                   "; echo "$var22"
+	echo -n "Routeur         : "; echo "$var21"
+	echo -n "                  "; echo "$var22"
 	echo ""
-	echo -n "Démarré depuis  :  "; echo "$var18 - $var19"
+	echo -n "Démarré depuis  : "; echo "$var18 - $var19"
 	echo ""
-	echo "Stockage         : "
+	echo "Stockage        : "
 	df -hT
 	echo ""
-	echo "RAM              : "
+	echo "RAM             : "
 	free -ht
 	echo ""
-	echo "Synchronisation de l'horloge :"
+	echo "Synchronisation de l'horloge : "
 	sudo systemctl daemon-reload
 	timedatectl timesync-status && timedatectl
 	echo ""
