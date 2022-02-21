@@ -83,7 +83,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo -n "EEPROM          : "
 	sudo rpi-eeprom-update
 	echo ""
-	echo -n "Nom d'hôte      : "; hostname
+	echo -n "Nom d'hôte      : "; hostname -s
 	echo ""
 	echo -n "IPv4/IPv6       : "; hostname -I
 	echo ""
