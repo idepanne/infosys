@@ -1,5 +1,6 @@
 #!/bin/bash
 # infosys-rpi.sh
+# [128]
 # Informations système pour Raspberry Pi uniquement
 # © 2020-2022 iDépanne – L'expert informatique
 # https://fb.me/idepanne/
