@@ -1,9 +1,8 @@
 #!/bin/bash
 # infosys.sh
-# [128]
+# [129]
 # Informations système pour Linux et Raspberry Pi
 # © 2020-2022 iDépanne – L'expert informatique
-# https://fb.me/idepanne/
 # idepanne67@gmail.com
 
 cd

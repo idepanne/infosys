@@ -1,9 +1,8 @@
 #!/bin/bash
 # infosys-rpi.sh
-# [128]
+# [129]
 # Informations système pour Raspberry Pi uniquement
 # © 2020-2022 iDépanne – L'expert informatique
-# https://fb.me/idepanne/
 # idepanne67@gmail.com
 
 var0=$(cat /proc/cpuinfo | grep Model)
