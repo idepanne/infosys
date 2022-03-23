@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys.sh
-# [130]
+# [131]
 # Informations système pour Linux et Raspberry Pi
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -105,12 +105,13 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo ""
 	pinout
 	echo ""
+	inxi -Fzx
+	echo ""
 	echo ""
 	neofetch
 else
-	echo ""
-	echo ""
 	inxi -Fzx
+	echo ""
 	echo ""
 	neofetch
 fi
