@@ -1,12 +1,12 @@
 #!/bin/bash
 # infosys.sh
-# [137]
+# [139]
 # Informations système pour Linux et Raspberry Pi
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
 
 cd
-sudo apt update && sudo apt install -y neofetch*
+sudo apt update && sudo apt install -y neofetch inxi
 mkdir .config
 cd .config
 mkdir neofetch
