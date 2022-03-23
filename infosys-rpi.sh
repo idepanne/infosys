@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys-rpi.sh
-# [131]
+# [132]
 # Informations système pour Raspberry Pi uniquement
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -94,6 +94,9 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo "Synchronisation de l'horloge : "
 	sudo systemctl daemon-reload
 	timedatectl timesync-status && timedatectl
+	echo ""
+	echo ""
+	inxi -Fzx
 	echo ""
 	echo ""
 	sudo rm infosys-rpi.sh
