@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys.sh
-# [143]
+# [144]
 # Informations système pour Linux et Raspberry Pi
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -49,7 +49,6 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	var22=$(/sbin/ip -6 route show | grep default)
 	######################################
 
-	echo ""
 	echo ""
 	echo ""
 	echo "+=============================================================================+"
