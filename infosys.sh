@@ -1,12 +1,12 @@
 #!/bin/bash
 # infosys.sh
-# [144]
+# [145]
 # Informations système pour Linux et Raspberry Pi
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
 
 cd
-sudo apt update && sudo apt install -y neofetch inxi
+sudo apt update && sudo apt install -y neofetch inxi speedtest-cli
 mkdir .config
 cd .config
 mkdir neofetch
@@ -14,6 +14,8 @@ cd
 wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/config.conf > config.conf
 sudo rm ~/.config/neofetch/config.conf
 sudo mv config.conf ~/.config/neofetch/config.conf
+echo ""
+speedtest
 
 var0=$(cat /proc/cpuinfo | grep Model)
 if [[ $var0 == *"Raspberry Pi"* ]]; then
