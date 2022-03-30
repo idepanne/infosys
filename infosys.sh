@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys.sh
-# [145]
+# [146]
 # Informations système pour Linux et Raspberry Pi
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -15,7 +15,10 @@ wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/con
 sudo rm ~/.config/neofetch/config.conf
 sudo mv config.conf ~/.config/neofetch/config.conf
 echo ""
+echo ""
 speedtest
+echo ""
+echo ""
 
 var0=$(cat /proc/cpuinfo | grep Model)
 if [[ $var0 == *"Raspberry Pi"* ]]; then
@@ -52,8 +55,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	######################################
 
 	echo ""
-	echo ""
-	echo "+=============================================================================+"
+    echo "+=============================================================================+"
 	echo "|  • A propos de ce Raspberry Pi                                              |"
 	echo "+=============================================================================+"
 	echo ""
