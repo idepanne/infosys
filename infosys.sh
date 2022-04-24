@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys.sh
-# [77]
+# [78]
 # Informations système pour Linux et Raspberry Pi
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -99,7 +99,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo "RAM             : "
 	free -ht
 	echo ""
-	echo "SWAP             : "
+	echo "Swap            : "
 	swapon -s
 	echo ""
 	echo "Synchronisation de l'horloge : "
