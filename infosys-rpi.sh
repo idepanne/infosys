@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys-rpi.sh
-# [76]
+# [77]
 # Informations système pour Raspberry Pi uniquement
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -10,6 +10,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 
 	cd ~/Apps
 	sudo apt-get update
+	sudo apt-get install -y zram-tools ### A supprimer ###
 
 	###### Définition des variables ######
 	var1=$(cat /proc/cpuinfo | grep Hardware | cut -c12-)
@@ -91,6 +92,9 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo ""
 	echo "RAM             : "
 	free -ht
+	echo ""
+	echo "SWAP             : "
+	swapon -s
 	echo ""
 	echo "Synchronisation de l'horloge : "
 	sudo systemctl daemon-reload
