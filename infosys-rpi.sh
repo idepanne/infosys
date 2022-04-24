@@ -1,7 +1,7 @@
 #!/bin/bash
 # infosys-rpi.sh
-# [79]
-# Informations système pour Raspberry Pi uniquement
+# [80]
+# Informations système pour Raspberry Pi OS uniquement
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
 
@@ -108,7 +108,7 @@ else
 	echo "Ce programme n'est compatible qu'avec Raspberry Pi OS (Raspbian)."
 	echo ""
 	echo ""
-	echo "Pour les autres distributions Linux basées sur Debian (non compatible avec Arch Linux), veuillez utiliser la commande :"
+	echo "Pour les autres distributions Linux (basées sur Debian ou Arch Linux), veuillez utiliser la commande :"
 	echo ""
 	echo "cd && wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/infosys.sh > infosys.sh && sudo chmod +x infosys.sh && ./infosys.sh"
 	echo ""
