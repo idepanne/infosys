@@ -1,12 +1,12 @@
 #!/bin/bash
 # infosys.sh
-# [82]
+# [83]
 # Informations système pour distributions Linux (basées sur Debian ou Arch Linux)
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
 
 cd
-varsys=$(uname -r)
+varsys=$(cat /etc/os-release | grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 	sudo pacman -S --needed neofetch inxi zswap-arm
 else
