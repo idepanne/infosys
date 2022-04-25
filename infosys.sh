@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys.sh
-# [85]
+# [86]
 # Informations système pour distributions Linux (basées sur Debian ou Arch Linux)
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -115,9 +115,13 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	sudo systemctl daemon-reload
 	timedatectl timesync-status && timedatectl
 	echo ""
-	echo ""
-	pinout
-	echo ""
+	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
+		echo ""
+	else
+		echo ""
+		pinout
+		echo ""
+	fi
 	echo ""
 	inxi -Fzx
 	echo ""
