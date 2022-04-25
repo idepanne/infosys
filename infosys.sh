@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys.sh
-# [86]
+# [87]
 # Informations système pour distributions Linux (basées sur Debian ou Arch Linux)
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -121,8 +121,8 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 		echo ""
 		pinout
 		echo ""
+		echo ""
 	fi
-	echo ""
 	inxi -Fzx
 	echo ""
 	echo ""
