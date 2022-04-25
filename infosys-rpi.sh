@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys-rpi.sh
-# [84]
+# [85]
 # Informations système pour Raspberry Pi OS uniquement
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -8,7 +8,7 @@
 varsys=$(cat /etc/os-release | grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 var0=$(cat /proc/cpuinfo | grep Model)
 
-
+cd
 if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 	echo "Ce programme ne fonctionne qu'avec Raspberry Pi OS."
 	echo "Il n'est pas compatible avec $varsys."
@@ -18,13 +18,9 @@ if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 	echo ""
 	echo "cd && wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/infosys.sh > infosys.sh && sudo chmod +x infosys.sh && ./infosys.sh"
 	echo ""
-	echo ""
-	cd
-	sudo rm infosys-rpi.sh
 else
 	if [[ $var0 == *"Raspberry Pi"* ]]; then
 
-		cd ~/Apps
 		sudo apt-get update
 		sudo apt-get install -y zram-tools ### A supprimer ###
 
@@ -117,7 +113,6 @@ else
 		timedatectl timesync-status && timedatectl
 		echo ""
 		echo ""
-		sudo rm infosys-rpi.sh
 	else
 		echo ""
 		echo ""
@@ -129,8 +124,7 @@ else
 		echo ""
 		echo "cd && wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/infosys.sh > infosys.sh && sudo chmod +x infosys.sh && ./infosys.sh"
 		echo ""
-		echo ""
-		cd
-		sudo rm infosys-rpi.sh
 	fi
 fi
+cd
+sudo rm infosys-rpi.sh
