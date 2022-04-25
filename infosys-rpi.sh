@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys-rpi.sh
-# [83]
+# [84]
 # Informations système pour Raspberry Pi OS uniquement
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -121,7 +121,7 @@ else
 	else
 		echo ""
 		echo ""
-		echo "Ce programme n'est compatible qu'avec Raspberry Pi OS."
+		echo "Ce programme ne fonctionne qu'avec Raspberry Pi OS."
 		echo "Il n'est pas compatible avec $varsys."
 		echo ""
 		echo ""
