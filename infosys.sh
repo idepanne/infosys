@@ -1,13 +1,13 @@
 #!/bin/bash
 # infosys.sh
-# [81]
+# [82]
 # Informations système pour distributions Linux (basées sur Debian ou Arch Linux)
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
 
 cd
 varsys=$(uname -r)
-if [[ $varsys == *"MANJARO"* ]]; then
+if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 	sudo pacman -S --needed neofetch inxi zswap-arm
 else
 	sudo apt update && sudo apt install -y neofetch inxi zram-tools
@@ -105,7 +105,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	free -ht
 	echo ""
 	echo "Swap            : "
-	if [[ $varsys == *"MANJARO"* ]]; then
+	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 		swapon -show
 	else
 		swapon -s
