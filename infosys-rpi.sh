@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys-rpi.sh
-# [88]
+# [89]
 # Informations système pour Raspberry Pi OS uniquement
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -8,7 +8,6 @@
 varsys=$(cat /etc/os-release | grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 var0=$(cat /proc/cpuinfo | grep Model)
 
-cd
 if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 	echo "Ce programme ne fonctionne qu'avec Raspberry Pi OS."
 	echo "Il n'est pas compatible avec $varsys."
@@ -126,7 +125,4 @@ else
 		echo ""
 	fi
 fi
-cd ~/Apps
-sudo rm infosys-rpi.sh
-cd 
 sudo rm infosys-rpi.sh
