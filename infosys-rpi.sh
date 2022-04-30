@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys-rpi.sh
-# [89]
+# [90]
 # Informations système pour Raspberry Pi OS uniquement
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -21,7 +21,6 @@ else
 	if [[ $var0 == *"Raspberry Pi"* ]]; then
 
 		sudo apt-get update
-		sudo apt-get install -y zram-tools ### A supprimer ###
 
 		###### Définition des variables ######
 		var1=$(cat /proc/cpuinfo | grep Hardware | cut -c12-)
