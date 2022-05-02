@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys.sh
-# [90]
+# [91]
 # Informations système pour distributions Linux (basées sur Debian ou Arch Linux)
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -106,9 +106,9 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo ""
 	echo "Swap            : "
 	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
-		swapon -show
+		sudo swapon -show
 	else
-		swapon -s
+		sudo swapon -s
 	fi
 	echo ""
 	echo "Synchronisation de l'horloge : "

@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys-rpi.sh
-# [90]
+# [91]
 # Informations système pour Raspberry Pi OS uniquement
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -104,7 +104,7 @@ else
 		free -ht
 		echo ""
 		echo "Swap            : "
-		swapon -s
+		sudo swapon -s
 		echo ""
 		echo "Synchronisation de l'horloge : "
 		sudo systemctl daemon-reload
