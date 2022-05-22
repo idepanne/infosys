@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys.sh
-# [93]
+# [94]
 # Informations système pour distributions Linux (basées sur Debian ou Arch Linux)
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -92,7 +92,8 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo -n "Nom d'hôte      : "; hostname -s
 	echo ""
 	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
-		echo -n "IPv4/IPv6       : "; ip -br a
+		echo "IPv4/IPv6       : "
+		ip -br a
 	else
 		echo -n "IPv4/IPv6       : "; hostname -I
 	fi
