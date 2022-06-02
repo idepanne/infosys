@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys.sh
-# [95]
+# [96]
 # Informations système pour distributions Linux (basées sur Debian ou Arch Linux)
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -78,7 +78,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo -n "Codec H265      : "; echo "$(vcgencmd codec_enabled H265)" | cut -c6-
 	echo ""
 	echo -n "Système         : "; echo "$var15 $var17"
-	if [[ $var20 == *"lxsession"* || $var20 == *"openbox"*  || $var20 == *"pipewire-media"*  || $var20 == *"xfce"*  || $var20 == *"gnome"*  || $var20 == *"kde"* ]]; then
+	if [[ $var20 == *"lxsession"* || $var20 == *"openbox"* || $var20 == *"pipewire-media"* || $var20 == *"xfce"* || $var20 == *"gnome"* || $var20 == *"kde"* || $var20 == *"cinnamon"* ]]; then
 		echo "Interface       : Graphique (GUI)"
 	else
 		echo "Interface       : Lignes de commandes (CLI)"
