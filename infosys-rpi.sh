@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys-rpi.sh
-# [96]
+# [98]
 # Informations système pour Raspberry Pi OS uniquement
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -48,7 +48,38 @@ else
 		fi
 		var18=$(uptime -s)
 		var19=$(uptime -p)
-		var20=$(ls /usr/bin/*session)
+    	var20=$(ls /usr/bin/*session)
+
+    	if [[ $var20 == *"lxsession"* ]]; then
+           var20b="Graphique (LXDE/LXqt)"
+        else
+            if [[ $var20 == *"openbox"* ]]; then
+                var20b="Graphique (Openbox)"
+            else
+                if [[ $var20 == *"pipewire-media"* ]]; then
+                    var20b="Graphique (PipeWire)"
+                else
+                    if [[ $var20 == *"xfce"* ]]; then
+                        var20b="Graphique (Xfce)"
+                    else
+                        if [[ $var20 == *"gnome"* ]]; then
+                            var20b="Graphique (GNOME)"
+                        else
+                            if [[ $var20 == *"kde"* ]]; then
+                                var20b="Graphique (KDE)"
+                            else
+                                if [[ $var20 == *"cinnamon"* ]]; then
+                                    var20b="Graphique (Cinnamon)"
+                                else
+                                	var20b="Lignes de commandes (CLI)"
+                                fi
+                            fi
+                        fi
+                    fi
+                fi
+            fi
+        fi
+
 		var21=$(/sbin/ip route show | grep default)
 		var22=$(/sbin/ip -6 route show | grep default)
 		######################################
@@ -77,11 +108,7 @@ else
 		echo -n "Codec H265      : "; echo "$(vcgencmd codec_enabled H265)" | cut -c6-
 		echo ""
 		echo -n "Système         : "; echo "$var15 $var17"
-		if [[ $var20 == *"lxsession"* || $var20 == *"openbox"* || $var20 == *"pipewire-media"* || $var20 == *"xfce"* || $var20 == *"gnome"* || $var20 == *"kde"* || $var20 == *"cinnamon"* ]]; then
-			echo "Interface       : Graphique (GUI)"
-		else
-			echo "Interface       : Lignes de commandes (CLI)"
-		fi
+        echo -n "Interface       : "; echo "$var20b"
 		echo ""
 		echo -n "Firmware        : "; echo "$var13"
 		echo ""
