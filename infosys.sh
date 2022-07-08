@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys.sh
-# [103]
+# [104]
 # Informations système pour distributions Linux (basées sur Debian ou Arch Linux)
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -129,13 +129,13 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 		echo ""
 		echo ""
 	fi
-	sudo inxi -FfzxG --display
+	sudo inxi -FfZzxG --display
 	echo ""
 	echo ""
 	neofetch
 else
 	echo ""
-	sudo inxi -FfzxG --display
+	sudo inxi -FfZzxG --display
 	echo ""
 	echo ""
 	echo ""
