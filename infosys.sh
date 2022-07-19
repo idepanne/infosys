@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys.sh
-# [107]
+# [108]
 # Informations système pour distributions Linux (basées sur Debian ou Arch Linux)
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -140,7 +140,6 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo ""
 	neofetch
 else
-	echo ""
    	echo "Test de débit Internet : "
     speedtest-cli
     echo ""
