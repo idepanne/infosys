@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys.sh
-# [104]
+# [105]
 # Informations système pour distributions Linux (basées sur Debian ou Arch Linux)
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -8,9 +8,9 @@
 cd
 varsys=$(cat /etc/os-release | grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
-	sudo pacman -Syy --needed --noconfirm neofetch inxi inetutils
+	sudo pacman -Syy --needed --noconfirm neofetch inxi inetutils speedtest-cli
 else
-	sudo apt update && sudo apt install -y neofetch inxi
+	sudo apt update && sudo apt install -y neofetch inxi speedtest-cli
 fi
 mkdir .config
 cd .config
@@ -120,6 +120,9 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo "Synchronisation de l'horloge : "
 	sudo systemctl daemon-reload
 	timedatectl timesync-status && timedatectl
+	echo ""
+	echo "Test de débit Internet : "
+	speedtest-cli
 	echo ""
 	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 		echo ""
