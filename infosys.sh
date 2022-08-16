@@ -37,11 +37,13 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	var9=$(< /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq rev | cut -c4- | rev)
 	var10=$(vcgencmd measure_volts core | cut -c6-)
 	var11=$(vcgencmd get_config int | grep -E "(gpu_freq)" | cut -c10-)
-	var12=$(echo "$var11" | rev | cut -c9- | rev)
+	#var12=$(echo $var11 | rev | cut -c9- | rev)
+    var12="$var11" | rev | cut -c9- | rev
 	var13=$(uname -srv)
-	var14=$(< /etc/os-release grep PRETTY_NAME | cut -c14-)
-	var15=$(echo "$var14" | rev | cut -c2- | rev)
-	var16=$(uname -m)
+	#var14=$(< /etc/os-release grep PRETTY_NAME | cut -c14-)
+    var14=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
+	#var15=$(echo $var14 | rev | cut -c2- | rev)
+    var16=$(uname -m)
 	if [[ $var16 == *"aarch64"* ]]; then
 		var17="- 64 bits"
 	else
@@ -60,9 +62,9 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo "|  • A propos de ce Raspberry Pi                                              |"
 	echo "+=============================================================================+"
 	echo ""
-	cat /proc/cpuinfo | grep Model
+	< /proc/cpuinfo grep Model
 	echo ""
-	cat /proc/cpuinfo | grep Serial
+	< /proc/cpuinfo grep Serial
 	echo ""
 	echo -n "SoC             : "; echo "$var2 $var1 (Rev $var3)"
 	echo -n "Processeur      : "; echo "$var5 $var4"
@@ -76,7 +78,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo -n "Codec H264      : "; echo "$(vcgencmd codec_enabled H264)" | cut -c6-
 	echo -n "Codec H265      : "; echo "$(vcgencmd codec_enabled H265)" | cut -c6-
 	echo ""
-	echo -n "Système         : "; echo "$var15 $var17"
+	echo -n "Système         : "; echo "$var14 $var17"
 	if [[ $var20 == *"lxsession"* || $var20 == *"openbox"* || $var20 == *"pipewire-media"* || $var20 == *"xfce"* || $var20 == *"gnome"* || $var20 == *"kde"* || $var20 == *"cinnamon"* || $var20 == *"mate"* ]]; then
 		echo "Interface       : Graphique (GUI - `echo "$var23"`)"
 	else
