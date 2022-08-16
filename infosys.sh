@@ -37,8 +37,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	var9=$(< /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq rev | cut -c4- | rev)
 	var10=$(vcgencmd measure_volts core | cut -c6-)
 	var11=$(vcgencmd get_config int | grep -E "(gpu_freq)" | cut -c10-)
-	#var12=$(echo $var11 | rev | cut -c9- | rev)
-    var12="$var11" | rev | cut -c9- | rev
+	var12=$(echo "$var11" | rev | cut -c9- | rev)
 	var13=$(uname -srv)
 	#var14=$(< /etc/os-release grep PRETTY_NAME | cut -c14-)
     var14=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
@@ -71,10 +70,10 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo -n "Nb de coeurs    : "; echo "$var6"
 	echo -n "Fréquences      : "; echo "Min $var7 MHz - Cur $var8 MHz - Max $var9 MHz"
 	echo -n "Voltage         : "; echo "$var10"
-	echo -n "Température     : "; echo "$(vcgencmd measure_temp | egrep -o '[0-9]*\.[0-9]*')°C"
+	echo -n "Température     : "; echo "$(vcgencmd measure_temp | grep -E -o '[0-9]*\.[0-9]*')°C"
 	echo ""
 	echo -n "GPU RAM         : "; echo "$(vcgencmd get_mem gpu)" | cut -c5-
-	echo -n "GPU fréquences  : "; echo "$var12 MHz"
+    echo -n "GPU fréquences  : "; echo "$var12 MHz"
 	echo -n "Codec H264      : "; echo "$(vcgencmd codec_enabled H264)" | cut -c6-
 	echo -n "Codec H265      : "; echo "$(vcgencmd codec_enabled H265)" | cut -c6-
 	echo ""
