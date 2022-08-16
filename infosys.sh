@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys.sh
-# [110]
+# [111]
 # Informations système pour distributions Linux (basées sur Debian ou Arch Linux)
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -37,10 +37,10 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	var9=$(< /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq rev | cut -c4- | rev)
 	var10=$(vcgencmd measure_volts core | cut -c6-)
 	var11=$(vcgencmd get_config int | grep -E "(gpu_freq)" | cut -c10-)
-	var12=$(echo $var11 | rev | cut -c9- | rev)
+	var12=$(echo "$var11" | rev | cut -c9- | rev)
 	var13=$(uname -srv)
 	var14=$(< /etc/os-release grep PRETTY_NAME | cut -c14-)
-	var15=$(echo $var14 | rev | cut -c2- | rev)
+	var15=$(echo "$var14" | rev | cut -c2- | rev)
 	var16=$(uname -m)
 	if [[ $var16 == *"aarch64"* ]]; then
 		var17="- 64 bits"
@@ -52,7 +52,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	var20=$(ls /usr/bin/*session)
 	var21=$(/sbin/ip route show | grep default)
 	var22=$(/sbin/ip -6 route show | grep default)
-    var23=$(echo $XDG_SESSION_TYPE)
+    var23=$XDG_SESSION_TYPE
 	######################################
 
 	echo ""
