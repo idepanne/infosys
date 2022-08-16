@@ -1,6 +1,6 @@
 #!/bin/bash
 # infosys.sh
-# [113]
+# [118]
 # Informations système pour distributions Linux (basées sur Debian ou Arch Linux)
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
@@ -81,7 +81,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo -n "Système         : "; echo "$var14 $var17"
 	if [[ $var20 == *"lxsession"* || $var20 == *"openbox"* || $var20 == *"pipewire-media"* || $var20 == *"xfce"* || $var20 == *"gnome"* || $var20 == *"kde"* || $var20 == *"cinnamon"* || $var20 == *"mate"* ]]; then
 		#echo "Interface       : Graphique (GUI - `echo "$var23"`)"
-        echo "Interface       : Graphique (GUI - $(echo "$var23"))"
+        echo -n "Interface       : Graphique (GUI "; echo -n $var23; echo ")"
 	else
 		#echo "Interface       : Lignes de commandes (CLI - `echo "$var23"`)"
         echo "Interface       : Lignes de commandes (CLI - $(echo "$var23"))"
