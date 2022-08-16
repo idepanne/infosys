@@ -84,7 +84,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
         echo -n "Interface       : Graphique (GUI "; echo -n $var23; echo ")"
 	else
 		#echo "Interface       : Lignes de commandes (CLI - `echo "$var23"`)"
-        echo "Interface       : Lignes de commandes (CLI - $(echo "$var23"))"
+        echo -n "Interface       : Lignes de commandes (CLI "; echo -n $var23; echo ")"
 	fi
 	echo ""
 	echo -n "Firmware        : "; echo "$var13"
