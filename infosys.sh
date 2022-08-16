@@ -1,47 +1,45 @@
 #!/bin/bash
 # infosys.sh
-# [109]
+# [110]
 # Informations système pour distributions Linux (basées sur Debian ou Arch Linux)
 # © 2020-2022 iDépanne – L'expert informatique
 # idepanne67@gmail.com
 
-cd
-varsys=$(cat /etc/os-release | grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
+cd || return
+varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 	sudo pacman -Syy --needed --noconfirm neofetch inxi inetutils speedtest-cli
 else
 	sudo apt update && sudo apt install -y neofetch inxi speedtest-cli
 fi
-mkdir .config
-cd .config
-mkdir neofetch
-cd
+mkdir ~/.config/neofetch
+cd || return
 wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/config.conf > config.conf
 sudo rm ~/.config/neofetch/config.conf
 sudo mv config.conf ~/.config/neofetch/config.conf
 echo ""
 echo ""
 
-var0=$(cat /proc/cpuinfo | grep Model)
+var0=$(< /proc/cpuinfo grep Model)
 if [[ $var0 == *"Raspberry Pi"* ]]; then
 
 	###### Définition des variables ######
-	var1=$(cat /proc/cpuinfo | grep Hardware | cut -c12-)
+	var1=$(< /proc/cpuinfo grep Hardware | cut -c12-)
 	if [[ $var1 == *"BCM"* ]]; then
 		var2="Broadcom"
 	fi
-	var3=$(cat /proc/cpuinfo | grep Revision | cut -c12-)
+	var3=$(< /proc/cpuinfo grep Revision | cut -c12-)
 	var4=$(lscpu | grep "Model name:" | cut -c34-)
 	var5=$(lscpu | grep "Vendor ID:" | cut -c34-)
 	var6=$(lscpu | grep "CPU(s):" | cut -c34-)
-	var7=$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq | rev | cut -c4- | rev)
-	var8=$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq | rev | cut -c4- | rev)
-	var9=$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq | rev | cut -c4- | rev)
+	var7=$(< /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq rev | cut -c4- | rev)
+	var8=$(< /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq rev | cut -c4- | rev)
+	var9=$(< /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq rev | cut -c4- | rev)
 	var10=$(vcgencmd measure_volts core | cut -c6-)
-	var11=$(vcgencmd get_config int | egrep "(gpu_freq)" | cut -c10-)
+	var11=$(vcgencmd get_config int | grep -E "(gpu_freq)" | cut -c10-)
 	var12=$(echo $var11 | rev | cut -c9- | rev)
 	var13=$(uname -srv)
-	var14=$(cat /etc/os-release | grep PRETTY_NAME | cut -c14-)
+	var14=$(< /etc/os-release grep PRETTY_NAME | cut -c14-)
 	var15=$(echo $var14 | rev | cut -c2- | rev)
 	var16=$(uname -m)
 	if [[ $var16 == *"aarch64"* ]]; then
@@ -150,5 +148,5 @@ else
 	echo ""
 	neofetch
 fi
-cd
+cd || return
 sudo rm infosys.sh
