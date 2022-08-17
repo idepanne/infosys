@@ -71,15 +71,15 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo -n "Température     : "; echo "$(vcgencmd measure_temp | grep -E -o '[0-9]*\.[0-9]*')°C"
 	echo ""
 	#echo -n "GPU RAM         : "; echo "$(vcgencmd get_mem gpu)" | cut -c5-
-	echo -n "GPU RAM         : "; vcgencmd get_mem gpu cut -c5-
+	echo -n "GPU RAM         : "; $(vcgencmd get_mem gpu) cut -c5-
 
     echo -n "GPU fréquences  : "; echo "$var12 MHz"
 
 	#echo -n "Codec H264      : "; echo "$(vcgencmd codec_enabled H264)" | cut -c6-
-    echo -n "Codec H264      : "; vcgencmd codec_enabled H264 cut -c6-
+    echo -n "Codec H264      : "; $(vcgencmd codec_enabled H264) cut -c6-
 
 	#echo -n "Codec H265      : "; echo "$(vcgencmd codec_enabled H265)" | cut -c6-
-    echo -n "Codec H265      : "; vcgencmd codec_enabled H265 cut -c6-
+    echo -n "Codec H265      : "; $(vcgencmd codec_enabled H265) cut -c6-
 
 	echo ""
 	echo -n "Système         : "; echo "$var14 $var17"
