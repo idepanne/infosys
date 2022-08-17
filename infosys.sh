@@ -3,7 +3,7 @@ clear
 echo "+=============================================================================+"
 echo "|      Infos système pour distrib Linux (basées sur Debian ou Arch Linux)     |"
 echo "|                                 infosys.sh                                  |"
-echo "|                                   [126]                                     |"
+echo "|                                   [127]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -74,25 +74,16 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo -n "Voltage         : "; echo "$var10"
 	echo -n "Température     : "; echo "$(vcgencmd measure_temp | grep -E -o '[0-9]*\.[0-9]*')°C"
 	echo ""
-	#echo -n "GPU RAM         : "; echo "$(vcgencmd get_mem gpu)" | cut -c5-
-	echo -n "GPU RAM         : "; $(vcgencmd get_mem gpu) cut -c5-
-
-    echo -n "GPU fréquences  : "; echo "$var12 MHz"
-
-	#echo -n "Codec H264      : "; echo "$(vcgencmd codec_enabled H264)" | cut -c6-
-    echo -n "Codec H264      : "; $(vcgencmd codec_enabled H264) cut -c6-
-
-	#echo -n "Codec H265      : "; echo "$(vcgencmd codec_enabled H265)" | cut -c6-
-    echo -n "Codec H265      : "; $(vcgencmd codec_enabled H265) cut -c6-
-
-	echo ""
+	echo -n "GPU RAM         : "; echo "$(vcgencmd get_mem gpu)" | cut -c5-
+	echo -n "GPU fréquences  : "; echo "$var12 MHz"
+    echo -n "Codec H264      : "; echo "$(vcgencmd codec_enabled H264)" | cut -c6-
+    echo -n "Codec H265      : "; echo "$(vcgencmd codec_enabled H265)" | cut -c6-
+    echo ""
 	echo -n "Système         : "; echo "$var14 $var17"
 	if [[ $var20 == *"lxsession"* || $var20 == *"openbox"* || $var20 == *"pipewire-media"* || $var20 == *"xfce"* || $var20 == *"gnome"* || $var20 == *"kde"* || $var20 == *"cinnamon"* || $var20 == *"mate"* ]]; then
-		#echo "Interface       : Graphique (GUI - `echo "$var23"`)"
-        echo -n "Interface       : Graphique (GUI "; echo -n "$var23"; echo ")"
+		echo -n "Interface       : Graphique (GUI "; echo -n "$var23"; echo ")"
 	else
-		#echo "Interface       : Lignes de commandes (CLI - `echo "$var23"`)"
-        echo -n "Interface       : Lignes de commandes (CLI "; echo -n "$var23"; echo ")"
+		echo -n "Interface       : Lignes de commandes (CLI "; echo -n "$var23"; echo ")"
 	fi
 	echo ""
 	echo -n "Firmware        : "; echo "$var13"
