@@ -38,14 +38,8 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	var10=$(vcgencmd measure_volts core | cut -c6-)
     var11=$(vcgencmd get_config int | egrep "(gpu_freq)" | cut -c10-)
 	var12=$(echo $var11 | rev | cut -c9- | rev)
-	
-    #var11=$(vcgencmd get_config int | grep -E "(gpu_freq)" | cut -c10-)
-	#var12=$(echo "$var11" | rev | cut -c9- | rev)
-
     var13=$(uname -srv)
-	#var14=$(< /etc/os-release grep PRETTY_NAME | cut -c14-)
     var14=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
-	#var15=$(echo $var14 | rev | cut -c2- | rev)
     var16=$(uname -m)
 	if [[ $var16 == *"aarch64"* ]]; then
 		var17="- 64 bits"
@@ -84,10 +78,10 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo -n "Système         : "; echo "$var14 $var17"
 	if [[ $var20 == *"lxsession"* || $var20 == *"openbox"* || $var20 == *"pipewire-media"* || $var20 == *"xfce"* || $var20 == *"gnome"* || $var20 == *"kde"* || $var20 == *"cinnamon"* || $var20 == *"mate"* ]]; then
 		#echo "Interface       : Graphique (GUI - `echo "$var23"`)"
-        echo -n "Interface       : Graphique (GUI "; echo -n $var23; echo ")"
+        echo -n "Interface       : Graphique (GUI "; echo -n "$var23"; echo ")"
 	else
 		#echo "Interface       : Lignes de commandes (CLI - `echo "$var23"`)"
-        echo -n "Interface       : Lignes de commandes (CLI "; echo -n $var23; echo ")"
+        echo -n "Interface       : Lignes de commandes (CLI "; echo -n "$var23"; echo ")"
 	fi
 	echo ""
 	echo -n "Firmware        : "; echo "$var13"
