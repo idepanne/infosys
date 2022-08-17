@@ -36,8 +36,12 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	var8=$(< /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq rev | cut -c4- | rev)
 	var9=$(< /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq rev | cut -c4- | rev)
 	var10=$(vcgencmd measure_volts core | cut -c6-)
-	var11=$(vcgencmd get_config int | grep -E "(gpu_freq)" | cut -c10-)
-	var12=$(echo "$var11" | rev | cut -c9- | rev)
+    var11=$(vcgencmd get_config int | egrep "(gpu_freq)" | cut -c10-)
+	var12=$(echo $var11 | rev | cut -c9- | rev)
+	
+    #var11=$(vcgencmd get_config int | grep -E "(gpu_freq)" | cut -c10-)
+	#var12=$(echo "$var11" | rev | cut -c9- | rev)
+
     var13=$(uname -srv)
 	#var14=$(< /etc/os-release grep PRETTY_NAME | cut -c14-)
     var14=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
