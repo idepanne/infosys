@@ -1,10 +1,13 @@
 #!/bin/bash
-# infosys-rpi.sh
-# [129]
-# Informations système pour Raspberry Pi OS uniquement
-# © 2020-2022 iDépanne – L'expert informatique
-# idepanne67@gmail.com
-
+#echo "+=============================================================================+"
+#echo "|             Informations système pour Raspberry Pi OS uniquement            |"
+#echo "|                              infosys-rpi.sh                                 |"
+#echo "|                                   [130]                                     |"
+#echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
+#echo "|                            idepanne67@gmail.com                             |"
+#echo "+=============================================================================+"
+#echo ""
+#echo ""
 varsys=$(cat /etc/os-release | grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 var0=$(cat /proc/cpuinfo | grep Model)
 

@@ -1,14 +1,13 @@
 #!/bin/bash
-clear
-echo "+=============================================================================+"
-echo "|       Infos système pour distributions Linux basées sur Debian et Arch      |"
-echo "|                                 infosys.sh                                  |"
-echo "|                                   [129]                                     |"
-echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
-echo "|                            idepanne67@gmail.com                             |"
-echo "+=============================================================================+"
-echo ""
-echo ""
+#echo "+=============================================================================+"
+#echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
+#echo "|                                 infosys.sh                                  |"
+#echo "|                                   [130]                                     |"
+#echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
+#echo "|                            idepanne67@gmail.com                             |"
+#echo "+=============================================================================+"
+#echo ""
+#echo ""
 cd || return
 varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
