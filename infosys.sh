@@ -2,18 +2,27 @@
 #echo "+=============================================================================+"
 #echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
 #echo "|                                 infosys.sh                                  |"
-#echo "|                                   [130]                                     |"
+#echo "|                                   [131]                                     |"
 #echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 #echo "|                            idepanne67@gmail.com                             |"
 #echo "+=============================================================================+"
 #echo ""
 #echo ""
 cd || return
-varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
-if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
-	sudo pacman -Syy --needed --noconfirm neofetch inxi inetutils speedtest-cli
+
+varsys=$(< /etc/os-release grep PRETTY_NAME)
+if [[ $varsys == *"EndeavourOS"* ]]; then
+    varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c13-)
 else
-	sudo apt update && sudo apt install -y neofetch inxi speedtest-cli
+    varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
+fi
+
+if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* || $varsys == *"EndeavourOS"* ]]; then
+	sudo pacman -Syy --needed --noconfirm neofetch inxi inetutils
+    sudo pacman -Rs speedtest-cli
+else
+	sudo apt update && sudo apt install -y neofetch inxi
+    sudo apt purge -y speedtest-cli
 fi
 mkdir ~/.config/neofetch
 cd || return
@@ -92,7 +101,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo ""
 	echo -n "Nom d'hôte      : "; hostname -s
 	echo ""
-	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
+	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* || $varsys == *"EndeavourOS"* ]]; then
 		echo "IPv4/IPv6       : "
 		ip -br a
 	else
@@ -111,7 +120,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	free -ht
 	echo ""
 	echo "Swap            : "
-	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
+	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* || $varsys == *"EndeavourOS"* ]]; then
 		sudo swapon -show
 	else
 		sudo swapon -s
@@ -121,15 +130,9 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	sudo systemctl daemon-reload
 	timedatectl timesync-status && timedatectl
 	echo ""
-	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
+	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* || $varsys == *"EndeavourOS"* ]]; then
 		echo ""
-    	echo "Test de débit Internet : "
-    	speedtest-cli
-    	echo ""
 	else
-		echo ""
-    	echo "Test de débit Internet : "
-	    speedtest-cli
 	    echo ""
 		pinout
 		echo ""
@@ -140,10 +143,6 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo ""
 	neofetch
 else
-   	echo "Test de débit Internet : "
-    speedtest-cli
-    echo ""
-    echo ""
 	sudo inxi -FfZzxG --display
 	echo ""
 	echo ""
