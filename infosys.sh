@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
 #echo "|                                 infosys.sh                                  |"
-#echo "|                                   [131]                                     |"
+#echo "|                                   [132]                                     |"
 #echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 #echo "|                            idepanne67@gmail.com                             |"
 #echo "+=============================================================================+"
@@ -18,8 +18,8 @@ else
 fi
 
 if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* || $varsys == *"EndeavourOS"* ]]; then
-	sudo pacman -Syy --needed --noconfirm neofetch inxi inetutils
-    sudo pacman -Rs speedtest-cli
+	sudo pacman -S --needed --noconfirm neofetch inxi inetutils
+    sudo pacman -Rs --noconfirm speedtest-cli
 else
 	sudo apt update && sudo apt install -y neofetch inxi
     sudo apt purge -y speedtest-cli
