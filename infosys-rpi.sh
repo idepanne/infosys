@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|             Informations système pour Raspberry Pi OS uniquement            |"
 #echo "|                              infosys-rpi.sh                                 |"
-#echo "|                                   [132]                                     |"
+#echo "|                                   [133]                                     |"
 #echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 #echo "|                            idepanne67@gmail.com                             |"
 #echo "+=============================================================================+"
@@ -10,9 +10,9 @@
 #echo ""
 varsys=$(< /etc/os-release grep PRETTY_NAME)
 if [[ $varsys == *"EndeavourOS"* ]]; then
-    varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c13-)
+	varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c13-)
 else
-    varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
+	varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 fi
 
 var0=$(cat /proc/cpuinfo | grep Model)
@@ -60,7 +60,7 @@ else
 		var20=$(ls /usr/bin/*session)
 		var21=$(/sbin/ip route show | grep default)
 		var22=$(/sbin/ip -6 route show | grep default)
-        var23=$(echo $XDG_SESSION_TYPE)
+		var23=$(echo $XDG_SESSION_TYPE)
 		######################################
 
 		echo ""

@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
 #echo "|                                 infosys.sh                                  |"
-#echo "|                                   [132]                                     |"
+#echo "|                                   [133]                                     |"
 #echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 #echo "|                            idepanne67@gmail.com                             |"
 #echo "+=============================================================================+"
@@ -12,17 +12,15 @@ cd || return
 
 varsys=$(< /etc/os-release grep PRETTY_NAME)
 if [[ $varsys == *"EndeavourOS"* ]]; then
-    varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c13-)
+	varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c13-)
 else
-    varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
+	varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 fi
 
 if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* || $varsys == *"EndeavourOS"* ]]; then
 	sudo pacman -S --needed --noconfirm neofetch inxi inetutils
-    sudo pacman -Rs --noconfirm speedtest-cli
 else
 	sudo apt update && sudo apt install -y neofetch inxi
-    sudo apt purge -y speedtest-cli
 fi
 mkdir ~/.config/neofetch
 cd || return
@@ -48,11 +46,11 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	var8=$(< /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq rev | cut -c4- | rev)
 	var9=$(< /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq rev | cut -c4- | rev)
 	var10=$(vcgencmd measure_volts core | cut -c6-)
-    var11=$(vcgencmd get_config int | egrep "(gpu_freq)" | cut -c10-)
+	var11=$(vcgencmd get_config int | egrep "(gpu_freq)" | cut -c10-)
 	var12=$(echo $var11 | rev | cut -c9- | rev)
-    var13=$(uname -srv)
-    var14=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
-    var16=$(uname -m)
+	var13=$(uname -srv)
+	var14=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
+	var16=$(uname -m)
 	if [[ $var16 == *"aarch64"* ]]; then
 		var17="- 64 bits"
 	else
@@ -63,7 +61,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	var20=$(ls /usr/bin/*session)
 	var21=$(/sbin/ip route show | grep default)
 	var22=$(/sbin/ip -6 route show | grep default)
-    var23=$XDG_SESSION_TYPE
+	var23=$XDG_SESSION_TYPE
 	######################################
 
 	echo ""
@@ -84,9 +82,9 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo ""
 	echo -n "GPU RAM         : "; echo "$(vcgencmd get_mem gpu)" | cut -c5-
 	echo -n "GPU fréquences  : "; echo "$var12 MHz"
-    echo -n "Codec H264      : "; echo "$(vcgencmd codec_enabled H264)" | cut -c6-
-    echo -n "Codec H265      : "; echo "$(vcgencmd codec_enabled H265)" | cut -c6-
-    echo ""
+	echo -n "Codec H264      : "; echo "$(vcgencmd codec_enabled H264)" | cut -c6-
+	echo -n "Codec H265      : "; echo "$(vcgencmd codec_enabled H265)" | cut -c6-
+	echo ""
 	echo -n "Système         : "; echo "$var14 $var17"
 	if [[ $var20 == *"lxsession"* || $var20 == *"openbox"* || $var20 == *"pipewire-media"* || $var20 == *"xfce"* || $var20 == *"gnome"* || $var20 == *"kde"* || $var20 == *"cinnamon"* || $var20 == *"mate"* ]]; then
 		echo -n "Interface       : Graphique (GUI "; echo -n "$var23"; echo ")"
@@ -133,7 +131,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* || $varsys == *"EndeavourOS"* ]]; then
 		echo ""
 	else
-	    echo ""
+		echo ""
 		pinout
 		echo ""
 		echo ""
