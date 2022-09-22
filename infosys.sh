@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
 #echo "|                                 infosys.sh                                  |"
-#echo "|                                   [135]                                     |"
+#echo "|                                   [136]                                     |"
 #echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 #echo "|                            idepanne67@gmail.com                             |"
 #echo "+=============================================================================+"
@@ -20,7 +20,7 @@ fi
 if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* || $varsys == *"EndeavourOS"* ]]; then
 	sudo pacman -S --needed --noconfirm neofetch inxi inetutils
 else
-	sudo apt update && sudo apt install -y neofetch inxi
+	sudo apt update && sudo apt install -y neofetch inxi smartmontools
 fi
 mkdir ~/.config/neofetch
 cd || return
@@ -136,12 +136,12 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 		echo ""
 		echo ""
 	fi
-	sudo inxi -FfZzxG --display
+	sudo inxi -FfZzxxxraG --display
 	echo ""
 	echo ""
 	neofetch
 else
-	sudo inxi -FfZzxG --display
+	sudo inxi -FfZzxxxraG --display
 	echo ""
 	echo ""
 	echo ""
