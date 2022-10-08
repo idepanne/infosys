@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
 #echo "|                                 infosys.sh                                  |"
-#echo "|                                   [136]                                     |"
+#echo "|                                   [137]                                     |"
 #echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 #echo "|                            idepanne67@gmail.com                             |"
 #echo "+=============================================================================+"
@@ -61,7 +61,6 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	var20=$(ls /usr/bin/*session)
 	var21=$(/sbin/ip route show | grep default)
 	var22=$(/sbin/ip -6 route show | grep default)
-	var23=$XDG_SESSION_TYPE
 	######################################
 
 	echo ""
@@ -87,9 +86,9 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo ""
 	echo -n "Système         : "; echo "$var14 $var17"
 	if [[ $var20 == *"lxsession"* || $var20 == *"openbox"* || $var20 == *"pipewire-media"* || $var20 == *"xfce"* || $var20 == *"gnome"* || $var20 == *"kde"* || $var20 == *"cinnamon"* || $var20 == *"mate"* ]]; then
-		echo -n "Interface       : Graphique (GUI - "; echo -n "$var23"; echo ")"
+		echo -n "Interface       : Graphique"
 	else
-		echo -n "Interface       : Lignes de commandes (CLI - "; echo -n "$var23"; echo ")"
+		echo -n "Interface       : Lignes de commandes"
 	fi
 	echo ""
 	echo -n "Firmware        : "; echo "$var13"
