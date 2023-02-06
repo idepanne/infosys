@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
 #echo "|                                 infosys.sh                                  |"
-#echo "|                                   [139]                                     |"
+#echo "|                                   [140]                                     |"
 #echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 #echo "|                            idepanne67@gmail.com                             |"
 #echo "+=============================================================================+"
@@ -10,14 +10,11 @@
 #echo ""
 cd || return
 
-varsys=$(< /etc/os-release grep PRETTY_NAME)
-if [[ $varsys == *"EndeavourOS"* ]]; then
-	varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c13-)
-else
-	varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
-fi
+###### Définition des variables ######
+varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
+######################################
 
-if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* || $varsys == *"EndeavourOS"* ]]; then
+if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 	sudo pacman -S --needed --noconfirm neofetch inxi inetutils
 else
 	sudo apt update && sudo apt install -y neofetch inxi smartmontools
@@ -98,7 +95,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo ""
 	echo -n "Nom d'hôte      : "; hostname -s
 	echo ""
-	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* || $varsys == *"EndeavourOS"* ]]; then
+	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 		echo "IPv4/IPv6       : "
 		ip -br a
 	else
@@ -117,7 +114,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	free -ht
 	echo ""
 	echo "Swap            : "
-	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* || $varsys == *"EndeavourOS"* ]]; then
+	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 		sudo swapon -show
 	else
 		sudo swapon -s
@@ -127,7 +124,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	sudo systemctl daemon-reload
 	timedatectl timesync-status && timedatectl
 	echo ""
-	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* || $varsys == *"EndeavourOS"* ]]; then
+	if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 		echo ""
 	else
 		echo ""

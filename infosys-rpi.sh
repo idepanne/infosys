@@ -2,22 +2,19 @@
 #echo "+=============================================================================+"
 #echo "|             Informations système pour Raspberry Pi OS uniquement            |"
 #echo "|                              infosys-rpi.sh                                 |"
-#echo "|                                   [139]                                     |"
+#echo "|                                   [140]                                     |"
 #echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 #echo "|                            idepanne67@gmail.com                             |"
 #echo "+=============================================================================+"
 #echo ""
 #echo ""
-varsys=$(< /etc/os-release grep PRETTY_NAME)
-if [[ $varsys == *"EndeavourOS"* ]]; then
-	varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c13-)
-else
-	varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
-fi
 
+###### Définition des variables ######
+varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 var0=$(< /proc/cpuinfo grep Model)
+######################################
 
-if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* || $varsys == *"EndeavourOS"* ]]; then
+if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 	echo "Ce programme ne fonctionne qu'avec Raspberry Pi OS."
 	echo "Il n'est pas compatible avec $varsys."
 	echo ""
