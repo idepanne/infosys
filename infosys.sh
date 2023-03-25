@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
 #echo "|                                 infosys.sh                                  |"
-#echo "|                                   [144]                                     |"
+#echo "|                                   [145]                                     |"
 #echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 #echo "|                            idepanne67@gmail.com                             |"
 #echo "+=============================================================================+"
@@ -27,6 +27,7 @@ if [[ -d "/home/pi/.config/neofetch" ]]; then
 else
     cd || return
     mkdir ~/.config/neofetch
+    sleep 5
     wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/config.conf > config.conf
     sudo mv config.conf ~/.config/neofetch/config.conf
 fi
