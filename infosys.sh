@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
 #echo "|                                 infosys.sh                                  |"
-#echo "|                                   [142]                                     |"
+#echo "|                                   [143]                                     |"
 #echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 #echo "|                            idepanne67@gmail.com                             |"
 #echo "+=============================================================================+"
@@ -19,11 +19,17 @@ if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 else
 	sudo apt update && sudo apt install -y neofetch inxi smartmontools
 fi
-mkdir ~/.config/neofetch
-cd || return
-wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/config.conf > config.conf
-sudo rm ~/.config/neofetch/config.conf
-sudo mv config.conf ~/.config/neofetch/config.conf
+if [[ -d "~/.config/neofetch" ]]; then
+    cd || return
+    wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/config.conf > config.conf
+    sudo rm ~/.config/neofetch/config.conf
+    sudo mv config.conf ~/.config/neofetch/config.conf
+else
+    cd || return
+    mkdir ~/.config/neofetch
+    wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/config.conf > config.conf
+    sudo mv config.conf ~/.config/neofetch/config.conf
+fi
 echo ""
 echo ""
 
