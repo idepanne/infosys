@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|             Informations système pour Raspberry Pi OS uniquement            |"
 #echo "|                              infosys-rpi.sh                                 |"
-#echo "|                                   [147]                                     |"
+#echo "|                                   [148]                                     |"
 #echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 #echo "|                        idepanne.support.tech@free.fr                        |"
 #echo "+=============================================================================+"
