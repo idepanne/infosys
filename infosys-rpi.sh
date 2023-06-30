@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|             Informations système pour Raspberry Pi OS uniquement            |"
 #echo "|                              infosys-rpi.sh                                 |"
-#echo "|                                   [151]                                     |"
+#echo "|                                   [152]                                     |"
 #echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 #echo "|                        idepanne.support.tech@free.fr                        |"
 #echo "+=============================================================================+"
@@ -12,7 +12,7 @@
 ###### Définition des variables ######
 varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 var0=$(< /proc/cpuinfo grep Model)
-varmac=$(inxi -n | cut -s -f 6-11 -d ':' | cut -c2-)
+varmac=$(sudo inxi -n | cut -s -f 6-11 -d ':' | cut -c2-)
 ######################################
 
 if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
