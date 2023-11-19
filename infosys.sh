@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
 #echo "|                                 infosys.sh                                  |"
-#echo "|                                   [157]                                     |"
+#echo "|                                   [158]                                     |"
 #echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 #echo "|                        idepanne.support.tech@free.fr                        |"
 #echo "+=============================================================================+"
@@ -43,9 +43,17 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 		var2="Broadcom"
 	fi
 	var3=$(< /proc/cpuinfo grep Revision | cut -c12-)
-	var4=$(lscpu | grep "Model name:" | cut -c34-)
-	var5=$(lscpu | grep "Vendor ID:" | cut -c34-)
-	var6=$(lscpu | grep "CPU(s):" | cut -c34-)
+    if [[ $varsys == *"bullseye"* ]]; then
+        var4=$(lscpu | grep "Model name:" | cut -c34-)
+        var5=$(lscpu | grep "Vendor ID:" | cut -c34-)
+        var6=$(lscpu | grep "CPU(s):" | cut -c34-)
+    else
+        if [[ $varsys == *"bookworm"* ]]; then
+            var4=$(lscpu | grep "Model name:" | cut -c37-)
+            var5=$(lscpu | grep "Vendor ID:" | cut -c37-)
+            var6=$(lscpu | grep "CPU(s):" | cut -c37-)
+        fi
+    fi
 	var7=$(< /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq rev | cut -c4- | rev)
 	var8=$(< /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq rev | cut -c4- | rev)
 	var9=$(< /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq rev | cut -c4- | rev)
