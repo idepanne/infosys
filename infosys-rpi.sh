@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|             Informations système pour Raspberry Pi OS uniquement            |"
 #echo "|                              infosys-rpi.sh                                 |"
-#echo "|                                   [159]                                     |"
+#echo "|                                   [160]                                     |"
 #echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 #echo "|                        idepanne.support.tech@free.fr                        |"
 #echo "+=============================================================================+"
@@ -109,7 +109,7 @@ else
 		echo -n "                  "; echo "$var22"
     	echo ""
     	echo -n "Serveurs DNS    : "
-        echo "$(cat /etc/resolv.conf)"
+        cat /etc/resolv.conf
 		echo ""
 		echo -n "Démarré depuis  : "; echo "$var18 - $var19"
 		echo ""
