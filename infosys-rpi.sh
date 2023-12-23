@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|             Informations système pour Raspberry Pi OS uniquement            |"
 #echo "|                              infosys-rpi.sh                                 |"
-#echo "|                                   [161]                                     |"
+#echo "|                                   [162]                                     |"
 #echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 #echo "|                        idepanne.support.tech@free.fr                        |"
 #echo "+=============================================================================+"
@@ -111,6 +111,14 @@ else
     	echo "Serveurs DNS    : "
         cat /etc/resolv.conf
 		echo ""
+        if [[ $varsys == *"bullseye"* ]]; then
+            echo -n "Adresse MAC     : "; cat /sys/class/net/eth0/address
+        else
+            if [[ $varsys == *"bookworm"* ]]; then
+                echo -n "Adresse MAC     : "; cat /sys/class/net/end0/address
+            fi
+        fi
+    	echo ""
 		echo -n "Démarré depuis  : "; echo "$var18 - $var19"
 		echo ""
 		echo "Stockage        : "

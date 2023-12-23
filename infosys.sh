@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
 #echo "|                                 infosys.sh                                  |"
-#echo "|                                   [161]                                     |"
+#echo "|                                   [162]                                     |"
 #echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 #echo "|                        idepanne.support.tech@free.fr                        |"
 #echo "+=============================================================================+"
@@ -122,6 +122,14 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo ""
 	echo "Serveurs DNS    : "
     cat /etc/resolv.conf
+	echo ""
+    if [[ $varsys == *"bullseye"* ]]; then
+        echo -n "Adresse MAC     : "; cat /sys/class/net/eth0/address
+    else
+        if [[ $varsys == *"bookworm"* ]]; then
+            echo -n "Adresse MAC     : "; cat /sys/class/net/end0/address
+        fi
+    fi
 	echo ""
 	echo -n "Démarré depuis  : "; echo "$var18 - $var19"
 	echo ""
