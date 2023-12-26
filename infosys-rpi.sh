@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|             Informations système pour Raspberry Pi OS uniquement            |"
 #echo "|                              infosys-rpi.sh                                 |"
-#echo "|                                   [162]                                     |"
+#echo "|                                   [163]                                     |"
 #echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 #echo "|                        idepanne.support.tech@free.fr                        |"
 #echo "+=============================================================================+"
@@ -29,7 +29,7 @@ else
 		sudo apt-get update
 
 		###### Définition des variables ######
-		var1=$(< /proc/cpuinfo grep Hardware | cut -c12-)
+	var1=$(pinout | grep "SoC                : " | cut -c22-)
 		if [[ $var1 == *"BCM"* ]]; then
 			var2="Broadcom"
 		fi

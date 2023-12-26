@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
 #echo "|                                 infosys.sh                                  |"
-#echo "|                                   [162]                                     |"
+#echo "|                                   [163]                                     |"
 #echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 #echo "|                        idepanne.support.tech@free.fr                        |"
 #echo "+=============================================================================+"
@@ -38,7 +38,7 @@ var0=$(< /proc/cpuinfo grep Model)
 if [[ $var0 == *"Raspberry Pi"* ]]; then
 
 	###### Définition des variables ######
-	var1=$(< /proc/cpuinfo grep Hardware | cut -c12-)
+	var1=$(pinout | grep "SoC                : " | cut -c22-)
 	if [[ $var1 == *"BCM"* ]]; then
 		var2="Broadcom"
 	fi
