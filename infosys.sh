@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
 #echo "|                                 infosys.sh                                  |"
-#echo "|                                   [169]                                     |"
+#echo "|                                   [170]                                     |"
 #echo "|                © 2019-2024 iDépanne – L'expert informatique                 |"
 #echo "|                        idepanne.support.tech@free.fr                        |"
 #echo "+=============================================================================+"
@@ -17,7 +17,8 @@ varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 	sudo pacman -S --needed --noconfirm fastfetch inxi inetutils ; sudo pacman -Rsn neofetch ; sudo rm -rv ~/.config/neofetch
 else
-	sudo apt update && sudo apt install -y neofetch inxi smartmontools
+	sudo apt update ; sudo apt install -y inxi smartmontools ; sudo apt purge -y neofetch ; sudo rm -rv ~/.config/neofetch
+    cd && wget -O - https://github.com/fastfetch-cli/fastfetch/releases/download/2.11.0/fastfetch-linux-aarch64.deb > fastfetch-linux-aarch64.deb && sudo dpkg -i fastfetch-linux-aarch64.deb
 fi
 echo ""
 echo ""
@@ -25,18 +26,18 @@ echo ""
 var0=$(< /proc/cpuinfo grep Model)
 if [[ $var0 == *"Raspberry Pi"* ]]; then
 
-    if [[ -d "/home/pi/.config/neofetch/" ]]; then
-        cd || return
-        wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/config.conf > config.conf
-       sudo rm ~/.config/neofetch/config.conf
-       sudo mv config.conf ~/.config/neofetch/config.conf
-    else
-        cd || return
-        mkdir ~/.config/
-        mkdir ~/.config/neofetch/
-        wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/config.conf > config.conf
-        sudo mv config.conf ~/.config/neofetch/config.conf
-    fi
+#    if [[ -d "/home/pi/.config/neofetch/" ]]; then
+#        cd || return
+#        wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/config.conf > config.conf
+#       sudo rm ~/.config/neofetch/config.conf
+#       sudo mv config.conf ~/.config/neofetch/config.conf
+#    else
+#        cd || return
+#        mkdir ~/.config/
+#        mkdir ~/.config/neofetch/
+#        wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/config.conf > config.conf
+#        sudo mv config.conf ~/.config/neofetch/config.conf
+#    fi
 
 	###### Définition des variables ######
 	var1=$(pinout | grep "SoC                : " | cut -c22-)
@@ -162,13 +163,13 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	sudo inxi -FfZzxxxraG --display
 	echo ""
 	echo ""
-	neofetch
+	fastfetch -c all.jsonc
 else
 	sudo inxi -FfZzxxxraG --display
 	echo ""
 	echo ""
 	echo ""
-	fastfetch
+	fastfetch -c all.jsonc
 fi
 cd || return
 sudo rm infosys.sh
