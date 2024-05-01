@@ -2,7 +2,7 @@
 echo "+=============================================================================+"
 echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
 echo "|                                 infosys.sh                                  |"
-echo "|                                   [175]                                     |"
+echo "|                                   [176]                                     |"
 echo "|                © 2019-2024 iDépanne – L'expert informatique                 |"
 echo "|                        idepanne.support.tech@free.fr                        |"
 echo "+=============================================================================+"
@@ -16,7 +16,7 @@ varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 ######################################
 
 if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
-	sudo pacman -S --needed --noconfirm fastfetch inxi inetutils ; sudo pacman -Rsn neofetch ; sudo rm -rv ~/.config/neofetch
+	sudo pacman -S --needed --noconfirm fastfetch inxi inetutils ; sudo pacman -Rsn --noconfirm neofetch ; sudo rm -rv ~/.config/neofetch
 else
 	sudo apt update ; sudo apt install -y inxi smartmontools ; sudo apt purge -y neofetch ; sudo rm -rv ~/.config/neofetch
     var55=$(fastfetch --version)
