@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|             Informations système pour Raspberry Pi OS uniquement            |"
 #echo "|                              infosys-rpi.sh                                 |"
-#echo "|                                   [170]                                     |"
+#echo "|                                   [171]                                     |"
 #echo "|                © 2019-2024 iDépanne – L'expert informatique                 |"
 #echo "|                        idepanne.support.tech@free.fr                        |"
 #echo "+=============================================================================+"
@@ -26,10 +26,8 @@ if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 else
 	if [[ $var0 == *"Raspberry Pi"* ]]; then
 
-		sudo apt-get update
-
 		###### Définition des variables ######
-	var1=$(pinout | grep "SoC                : " | cut -c22-)
+        var1=$(pinout | grep "SoC                : " | cut -c22-)
 		if [[ $var1 == *"BCM"* ]]; then
 			var2="Broadcom"
 		fi
