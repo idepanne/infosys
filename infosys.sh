@@ -2,7 +2,7 @@
 echo "+=============================================================================+"
 echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
 echo "|                                 infosys.sh                                  |"
-echo "|                                   [176]                                     |"
+echo "|                                   [177]                                     |"
 echo "|                © 2019-2024 iDépanne – L'expert informatique                 |"
 echo "|                        idepanne.support.tech@free.fr                        |"
 echo "+=============================================================================+"
