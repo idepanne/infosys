@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
 #echo "|                                 infosys.sh                                  |"
-#echo "|                                   [167]                                     |"
+#echo "|                                   [168]                                     |"
 #echo "|                © 2019-2024 iDépanne – L'expert informatique                 |"
 #echo "|                        idepanne.support.tech@free.fr                        |"
 #echo "+=============================================================================+"
@@ -19,23 +19,24 @@ if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 else
 	sudo apt update && sudo apt install -y neofetch inxi smartmontools
 fi
-if [[ -d "/home/pi/.config/neofetch/" ]]; then
-    cd || return
-    wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/config.conf > config.conf
-    sudo rm ~/.config/neofetch/config.conf
-    sudo mv config.conf ~/.config/neofetch/config.conf
-else
-    cd || return
-    mkdir ~/.config/
-    mkdir ~/.config/neofetch/
-    wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/config.conf > config.conf
-    sudo mv config.conf ~/.config/neofetch/config.conf
-fi
 echo ""
 echo ""
 
 var0=$(< /proc/cpuinfo grep Model)
 if [[ $var0 == *"Raspberry Pi"* ]]; then
+
+    if [[ -d "/home/pi/.config/neofetch/" ]]; then
+        cd || return
+        wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/config.conf > config.conf
+       sudo rm ~/.config/neofetch/config.conf
+       sudo mv config.conf ~/.config/neofetch/config.conf
+    else
+        cd || return
+        mkdir ~/.config/
+        mkdir ~/.config/neofetch/
+        wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/neofetch/config.conf > config.conf
+        sudo mv config.conf ~/.config/neofetch/config.conf
+    fi
 
 	###### Définition des variables ######
 	var1=$(pinout | grep "SoC                : " | cut -c22-)
