@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|             Informations système pour Raspberry Pi OS uniquement            |"
 #echo "|                              infosys-rpi.sh                                 |"
-#echo "|                                   [181]                                     |"
+#echo "|                                   [184]                                     |"
 #echo "|                © 2019-2024 iDépanne – L'expert informatique                 |"
 #echo "|                        idepanne.support.tech@free.fr                        |"
 #echo "+=============================================================================+"
@@ -21,7 +21,7 @@ if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 	echo ""
 	echo "Pour les autres distributions Linux (basées sur Debian ou Arch Linux), veuillez utiliser la commande :"
 	echo ""
-	echo "cd && wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/infosys.sh > infosys.sh && sudo chmod +x infosys.sh && ./infosys.sh"
+	echo "cd && wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/apps/infosys.sh > infosys.sh && sudo chmod +x infosys.sh && ./infosys.sh"
 	echo ""
 else
 	if [[ $var0 == *"Raspberry Pi"* ]]; then
@@ -142,7 +142,7 @@ else
 		echo ""
 		echo "Pour les autres distributions Linux (basées sur Debian ou Arch Linux), veuillez utiliser la commande :"
 		echo ""
-		echo "cd && wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/infosys.sh > infosys.sh && sudo chmod +x infosys.sh && ./infosys.sh"
+		echo "cd && wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/apps/infosys.sh > infosys.sh && sudo chmod +x infosys.sh && ./infosys.sh"
 		echo ""
 	fi
 fi
