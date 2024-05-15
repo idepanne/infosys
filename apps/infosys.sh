@@ -1,14 +1,14 @@
 #!/bin/bash
-echo "+=============================================================================+"
-echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
-echo "|                                 infosys.sh                                  |"
-echo "|                                   [184]                                     |"
-echo "|                © 2019-2024 iDépanne – L'expert informatique                 |"
-echo "|                        idepanne.support.tech@free.fr                        |"
-echo "+=============================================================================+"
-echo ""
-echo ""
-echo ""
+#echo "+=============================================================================+"
+#echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
+#echo "|                                 infosys.sh                                  |"
+#echo "|                                   [185]                                     |"
+#echo "|                © 2019-2024 iDépanne – L'expert informatique                 |"
+#echo "|                        idepanne.support.tech@free.fr                        |"
+#echo "+=============================================================================+"
+#echo ""
+#echo ""
+#echo ""
 cd || return
 
 ###### Définition des variables ######
