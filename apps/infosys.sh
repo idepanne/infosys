@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
 #echo "|                                 infosys.sh                                  |"
-#echo "|                                   [185]                                     |"
+#echo "|                                   [186]                                     |"
 #echo "|                © 2019-2024 iDépanne – L'expert informatique                 |"
 #echo "|                        idepanne.support.tech@free.fr                        |"
 #echo "+=============================================================================+"
@@ -20,12 +20,12 @@ if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 else
 	sudo apt-get update ; sudo apt-get install -y inxi smartmontools ; sudo apt-get purge -y neofetch ; sudo rm -rv ~/.config/neofetch
     var55=$(fastfetch --version)
-    if [[ "$var55" =~ "fastfetch 2.12.0 (aarch64)" ]]; then
+    if [[ "$var55" =~ "fastfetch 2.13.1 (aarch64)" ]]; then
     	echo ""
     else
 	    echo ""
-        echo "cd || return && wget -O - https://github.com/fastfetch-cli/fastfetch/releases/download/2.12.0/fastfetch-linux-aarch64.deb > fastfetch-linux-aarch64.deb && sudo dpkg -i fastfetch-linux-aarch64.deb ; sudo rm -rv fastfetch-linux-aarch64.deb"
-        cd || return && wget -O - https://github.com/fastfetch-cli/fastfetch/releases/download/2.12.0/fastfetch-linux-aarch64.deb > fastfetch-linux-aarch64.deb && sudo dpkg -i fastfetch-linux-aarch64.deb ; sudo rm -rv fastfetch-linux-aarch64.deb
+        echo "cd || return && wget -O - https://github.com/fastfetch-cli/fastfetch/releases/download/2.13.1/fastfetch-linux-aarch64.deb > fastfetch-linux-aarch64.deb && sudo dpkg -i fastfetch-linux-aarch64.deb ; sudo rm -rv fastfetch-linux-aarch64.deb"
+        cd || return && wget -O - https://github.com/fastfetch-cli/fastfetch/releases/download/2.13.1/fastfetch-linux-aarch64.deb > fastfetch-linux-aarch64.deb && sudo dpkg -i fastfetch-linux-aarch64.deb ; sudo rm -rv fastfetch-linux-aarch64.deb
     fi
 fi
 echo ""
