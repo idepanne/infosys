@@ -1,32 +1,65 @@
 #!/bin/bash
 #echo "+=============================================================================+"
-#echo "|       Infos système pour distributions Linux basées sur Debian ou Arch      |"
+#echo "|   Infos système pour distributions Linux basées sur Debian, Arch ou Fedora  |"
 #echo "|                                 infosys.sh                                  |"
-#echo "|                                   [187]                                     |"
+#echo "|                                   [201]                                     |"
 #echo "|                © 2019-2024 iDépanne – L'expert informatique                 |"
 #echo "|                        idepanne.support.tech@free.fr                        |"
 #echo "+=============================================================================+"
 #echo ""
 #echo ""
-#echo ""
 cd || return
 
 ###### Définition des variables ######
-varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
+varsys=$(< /etc/os-release)
+var55=$(fastfetch --version)
 ######################################
 
-if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
+if [[ $varsys == *"arch"* || $varsys == *"manjaro"* || $varsys == *"endeavouros"* ]]; then
+	echo ""
+	echo "Distribution mère : Arch Linux"
+	echo ""
+	echo $var55
+	echo ""
 	sudo pacman -S --needed --noconfirm fastfetch inxi inetutils ; sudo pacman -Rsn --noconfirm neofetch ; sudo rm -rv ~/.config/neofetch
 else
-	sudo apt-get update ; sudo apt-get install -y inxi smartmontools ; sudo apt-get purge -y neofetch ; sudo rm -rv ~/.config/neofetch
-    var55=$(fastfetch --version)
-    if [[ "$var55" =~ "fastfetch 2.13.2 (aarch64)" ]]; then
-    	echo ""
-    else
-	    echo ""
-        echo "cd || return && wget -O - https://github.com/fastfetch-cli/fastfetch/releases/download/2.13.2/fastfetch-linux-aarch64.deb > fastfetch-linux-aarch64.deb && sudo dpkg -i fastfetch-linux-aarch64.deb ; sudo rm -rv fastfetch-linux-aarch64.deb"
-        cd || return && wget -O - https://github.com/fastfetch-cli/fastfetch/releases/download/2.13.2/fastfetch-linux-aarch64.deb > fastfetch-linux-aarch64.deb && sudo dpkg -i fastfetch-linux-aarch64.deb ; sudo rm -rv fastfetch-linux-aarch64.deb
-    fi
+	if [[ $varsys == *"fedora"* ]]; then
+		echo ""
+		echo "Distribution mère : Fedora Linux"
+		echo ""
+		echo $var55
+		echo ""
+		#sudo dnf
+	else
+		if [[ $varsys == *"Debian"* || $varsys == *"debian"* ]]; then
+			echo ""
+			echo "Distribution mère : Debian Linux"
+			echo ""
+			echo $var55
+			echo ""
+			sudo apt-get update ; sudo apt-get install -y inxi smartmontools ; sudo apt-get purge -y neofetch ; sudo rm -rv ~/.config/neofetch
+			var0=$(< /proc/cpuinfo grep Model)
+			if [[ $var0 == *"Raspberry"* || $var0 == *"raspberry"* ]]; then
+				if [[ "$var55" =~ "fastfetch 2.13.2 (aarch64)" ]]; then
+					echo ""
+					echo "Fastfetch est à jour"
+				else
+					echo ""
+					echo "cd || return && wget -O - https://github.com/fastfetch-cli/fastfetch/releases/download/2.13.2/fastfetch-linux-aarch64.deb > fastfetch-linux-aarch64.deb && sudo dpkg -i fastfetch-linux-aarch64.deb ; sudo rm -rv fastfetch-linux-aarch64.deb"
+					cd || return && wget -O - https://github.com/fastfetch-cli/fastfetch/releases/download/2.13.2/fastfetch-linux-aarch64.deb > fastfetch-linux-aarch64.deb && sudo dpkg -i fastfetch-linux-aarch64.deb ; sudo rm -rv fastfetch-linux-aarch64.deb
+				fi
+			else
+				if [[ "$var55" =~ "fastfetch 2.13.2 (x86_64)" ]]; then
+					echo ""
+					echo "Fastfetch est à jour"
+				else
+					echo ""
+					echo "cd || return && wget -O - https://github.com/fastfetch-cli/fastfetch/releases/download/2.13.2/fastfetch-linux-amd64.deb > fastfetch-linux-amd64.deb && sudo dpkg -i fastfetch-linux-amd64.deb ; sudo rm -rv fastfetch-linux-amd64.deb"
+					cd || return && wget -O - https://github.com/fastfetch-cli/fastfetch/releases/download/2.13.2/fastfetch-linux-amd64.deb > fastfetch-linux-amd64.deb && sudo dpkg -i fastfetch-linux-amd64.deb ; sudo rm -rv fastfetch-linux-amd64.deb
+				fi
+			fi		
+		fi
+	fi
 fi
 echo ""
 echo ""
