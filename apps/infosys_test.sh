@@ -1,12 +1,11 @@
-!/bin/bash
+#!/bin/bash
 echo "+=============================================================================+"
 echo "|   Infos système pour distributions Linux basées sur Debian, Arch ou Fedora  |"
 echo "|                                 infosys.sh                                  |"
-echo "|                                   [195]                                     |"
+echo "|                                   [196]                                     |"
 echo "|                © 2019-2024 iDépanne – L'expert informatique                 |"
 echo "|                        idepanne.support.tech@free.fr                        |"
 echo "+=============================================================================+"
-echo ""
 echo ""
 echo ""
 cd || return
