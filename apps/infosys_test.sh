@@ -2,7 +2,7 @@
 echo "+=============================================================================+"
 echo "|   Infos système pour distributions Linux basées sur Debian, Arch ou Fedora  |"
 echo "|                                 infosys.sh                                  |"
-echo "|                                   [196]                                     |"
+echo "|                                   [197]                                     |"
 echo "|                © 2019-2024 iDépanne – L'expert informatique                 |"
 echo "|                        idepanne.support.tech@free.fr                        |"
 echo "+=============================================================================+"
@@ -44,7 +44,7 @@ else
 				fi
 			else
 				var55=$(fastfetch --version)
-				if [[ "$var55" =~ "fastfetch 2.13.2 (amd64)" ]]; then
+				if [[ "$var55" =~ "fastfetch 2.13.2 (x86_64)" ]]; then
 					echo ""
 				else
 					echo ""
