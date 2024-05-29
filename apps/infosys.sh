@@ -1,11 +1,11 @@
 #!/bin/bash
-#echo "+=============================================================================+"
-#echo "|   Infos système pour distributions Linux basées sur Debian, Arch ou Fedora  |"
-#echo "|                                 infosys.sh                                  |"
-#echo "|                                   [201]                                     |"
-#echo "|                © 2019-2024 iDépanne – L'expert informatique                 |"
-#echo "|                        idepanne.support.tech@free.fr                        |"
-#echo "+=============================================================================+"
+#echo "+==============================================================================+"
+#echo "|   Infos système pour distributions Linux basées sur Debian, Arch ou Fedora   |"
+#echo "|                                  infosys.sh                                  |"
+#echo "|                                     [202]                                    |"
+#echo "|                 © 2019-2024 iDépanne – L'expert informatique                 |"
+#echo "|                         idepanne.support.tech@free.fr                        |"
+#echo "+==============================================================================+"
 #echo ""
 #echo ""
 cd || return
@@ -73,23 +73,23 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 		var2="Broadcom"
 	fi
 	var3=$(< /proc/cpuinfo grep Revision | cut -c12-)
-    if [[ $varsys == *"bullseye"* ]]; then
-        var4=$(lscpu | grep "Model name:" | cut -c34-)
-        var5=$(lscpu | grep "Vendor ID:" | cut -c34-)
-        var6=$(lscpu | grep "CPU(s):" | cut -c34-)
-    else
-        if [[ $varsys == *"bookworm"* ]]; then
-            var4=$(lscpu | grep "Model name:" | cut -c37-)
-            var5=$(lscpu | grep "Vendor ID:" | cut -c37-)
-            var6=$(lscpu | grep "CPU(s):" | cut -c37-)
-        fi
-    fi
+	if [[ $varsys == *"bullseye"* ]]; then
+		var4=$(lscpu | grep "Model name:" | cut -c34-)
+		var5=$(lscpu | grep "Vendor ID:" | cut -c34-)
+		var6=$(lscpu | grep "CPU(s):" | cut -c34-)
+	else
+		if [[ $varsys == *"bookworm"* ]]; then
+			var4=$(lscpu | grep "Model name:" | cut -c37-)
+			var5=$(lscpu | grep "Vendor ID:" | cut -c37-)
+			var6=$(lscpu | grep "CPU(s):" | cut -c37-)
+		fi
+	fi
 	var7=$(< /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq rev | cut -c4- | rev)
 	var8=$(< /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq rev | cut -c4- | rev)
 	var9=$(< /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq rev | cut -c4- | rev)
 	var10=$(vcgencmd measure_volts core | cut -c6-)
 	var11=$(vcgencmd get_config int | grep -E "(gpu_freq)" | cut -c10-)
-    var12=$(echo $var11 | rev | cut -c9- | rev)
+	var12=$(echo $var11 | rev | cut -c9- | rev)
 	var13=$(uname -srv)
 	var14=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 	var16=$(uname -m)
@@ -151,15 +151,15 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo -n "                  "; echo "$var22"
 	echo ""
 	echo "Serveurs DNS    : "
-    cat /etc/resolv.conf
+	cat /etc/resolv.conf
 	echo ""
-    if [[ $varsys == *"bullseye"* ]]; then
-        echo -n "Adresse MAC     : "; cat /sys/class/net/eth0/address
-    else
-        if [[ $varsys == *"bookworm"* ]]; then
-            echo -n "Adresse MAC     : "; cat /sys/class/net/end0/address
-        fi
-    fi
+	if [[ $varsys == *"bullseye"* ]]; then
+		echo -n "Adresse MAC     : "; cat /sys/class/net/eth0/address
+	else
+		if [[ $varsys == *"bookworm"* ]]; then
+			echo -n "Adresse MAC     : "; cat /sys/class/net/end0/address
+		fi
+	fi
 	echo ""
 	echo -n "Démarré depuis  : "; echo "$var18 - $var19"
 	echo ""

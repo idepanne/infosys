@@ -1,11 +1,11 @@
 #!/bin/bash
-#echo "+=============================================================================+"
-#echo "|                  Informations système pour Raspberry Pi OS                  |"
-#echo "|                              infosys-rpi.sh                                 |"
-#echo "|                                   [201]                                     |"
-#echo "|                © 2019-2024 iDépanne – L'expert informatique                 |"
-#echo "|                        idepanne.support.tech@free.fr                        |"
-#echo "+=============================================================================+"
+#echo "+==============================================================================+"
+#echo "|                   Informations système pour Raspberry Pi OS                  |"
+#echo "|                                infosys-rpi.sh                                |"
+#echo "|                                     [202]                                    |"
+#echo "|                 © 2019-2024 iDépanne – L'expert informatique                 |"
+#echo "|                         idepanne.support.tech@free.fr                        |"
+#echo "+==============================================================================+"
 #echo ""
 #echo ""
 
@@ -96,7 +96,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	echo -n "Routeur         : "; echo "$var21"
 	echo -n "                  "; echo "$var22"
 	echo ""
-    echo "Serveurs DNS    : "
+	echo "Serveurs DNS    : "
 	cat /etc/resolv.conf
 	echo ""
 	if [[ $varsys == *"bullseye"* ]]; then
@@ -106,7 +106,7 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 			echo -n "Adresse MAC     : "; cat /sys/class/net/end0/address
 		fi
 	fi
-    echo ""
+	echo ""
 	echo -n "Démarré depuis  : "; echo "$var18 - $var19"
 	echo ""
 	echo "Stockage        : "
