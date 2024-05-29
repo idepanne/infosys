@@ -2,7 +2,7 @@
 #echo "+=============================================================================+"
 #echo "|   Infos système pour distributions Linux basées sur Debian, Arch ou Fedora  |"
 #echo "|                                 infosys.sh                                  |"
-#echo "|                                   [191]                                     |"
+#echo "|                                   [192]                                     |"
 #echo "|                © 2019-2024 iDépanne – L'expert informatique                 |"
 #echo "|                        idepanne.support.tech@free.fr                        |"
 #echo "+=============================================================================+"
@@ -17,16 +17,19 @@ varsys=$(< /etc/os-release)
 ######################################
 
 if [[ $varsys == *"arch"* || $varsys == *"manjaro"* || $varsys == *"endeavouros"* ]]; then
+	echo ""
 	echo "Distribution mère : Arch Linux"
 	echo ""
 	sudo pacman -S --needed --noconfirm fastfetch inxi inetutils ; sudo pacman -Rsn --noconfirm neofetch ; sudo rm -rv ~/.config/neofetch
 else
 	if [[ $varsys == *"fedora"* ]]; then
+		echo ""
 		echo "Distribution mère : Fedora Linux"
 		echo ""
 		#sudo dnf
 	else
-		if [[ $varsys == *"Debian"* ]]; then
+		if [[ $varsys == *"Debian"* || $varsys == *"debian"* ]]; then
+			echo ""
 			echo "Distribution mère : Debian Linux"
 			echo ""
 			sudo apt-get update ; sudo apt-get install -y inxi smartmontools ; sudo apt-get purge -y neofetch ; sudo rm -rv ~/.config/neofetch
