@@ -2,7 +2,7 @@
 #echo "+==============================================================================+"
 #echo "|                   Informations système pour Raspberry Pi OS                  |"
 #echo "|                                infosys-rpi.sh                                |"
-#echo "|                                     [203]                                    |"
+#echo "|                                     [204]                                    |"
 #echo "|                 © 2019-2024 iDépanne – L'expert informatique                 |"
 #echo "|                         idepanne.support.tech@free.fr                        |"
 #echo "+==============================================================================+"
@@ -28,9 +28,9 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 		var6=$(lscpu | grep "CPU(s):" | cut -c34-)
 	else
 		if [[ $varsys == *"bookworm"* ]]; then
-			var4=$(lscpu | grep "Model name:" | cut -c37-)
-			var5=$(lscpu | grep "Vendor ID:" | cut -c37-)
-			var6=$(lscpu | grep "CPU(s):" | cut -c37-)
+			var4=$(lscpu | grep "Model name:" | cut -c39-)
+			var5=$(lscpu | grep "Vendor ID:" | cut -c39-)
+			var6=$(lscpu | grep "CPU(s):" | cut -c39-)
 		fi
 	fi
 	var7=$(< /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq rev | cut -c4- | rev)
