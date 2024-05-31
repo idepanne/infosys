@@ -2,7 +2,7 @@
 #echo "+==============================================================================+"
 #echo "|   Infos système pour distributions Linux basées sur Debian, Arch ou Fedora   |"
 #echo "|                                  infosys.sh                                  |"
-#echo "|                                     [210]                                    |"
+#echo "|                                     [211]                                    |"
 #echo "|                 © 2019-2024 iDépanne – L'expert informatique                 |"
 #echo "|                         idepanne.support.tech@free.fr                        |"
 #echo "+==============================================================================+"
@@ -29,7 +29,7 @@ else
 		echo ""
 		echo $var55
 		echo ""
-		#sudo dnf
+		sudo dnf install inxi fastfetch && sudo dnf remove neofetch ; sudo rm -rv ~/.config/neofetch
 	else
 		if [[ $varsys == *"Debian"* || $varsys == *"debian"* ]]; then
 			echo ""
