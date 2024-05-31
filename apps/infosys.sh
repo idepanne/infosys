@@ -2,7 +2,7 @@
 #echo "+==============================================================================+"
 #echo "|   Infos système pour distributions Linux basées sur Debian, Arch ou Fedora   |"
 #echo "|                                  infosys.sh                                  |"
-echo "|                                     [208]                                    |"
+echo "|                                     [209]                                    |"
 #echo "|                 © 2019-2024 iDépanne – L'expert informatique                 |"
 #echo "|                         idepanne.support.tech@free.fr                        |"
 #echo "+==============================================================================+"
@@ -61,6 +61,7 @@ else
 		fi
 	fi
 fi
+echo ""
 var0=$(< /proc/cpuinfo grep Model)
 if [[ $var0 == *"Raspberry Pi"* ]]; then
 	wget -O - https://raw.githubusercontent.com/idepanne/infosys/master/apps/infosys-rpi.sh > infosys-rpi.sh > infosys-rpi.sh
