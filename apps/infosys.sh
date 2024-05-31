@@ -2,7 +2,7 @@
 #echo "+==============================================================================+"
 #echo "|   Infos système pour distributions Linux basées sur Debian, Arch ou Fedora   |"
 #echo "|                                  infosys.sh                                  |"
-#echo "|                                     [206]                                    |"
+echo "|                                     [207]                                    |"
 #echo "|                 © 2019-2024 iDépanne – L'expert informatique                 |"
 #echo "|                         idepanne.support.tech@free.fr                        |"
 #echo "+==============================================================================+"
@@ -69,6 +69,8 @@ if [[ $var0 == *"Raspberry Pi"* ]]; then
 	./infosys-rpi.sh
 	echo ""
 	sudo inxi -FfZzxxxraG --display
+	echo ""
+	echo ""
 	echo ""
 	fastfetch -c all.jsonc
 else
